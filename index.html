@@ -1,0 +1,3782 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glam Spiritual Affirmation Prompt Generator</title>
+<!-- Code scan cleanup: removed stale field IDs, hardened lock/download handlers, and updated hidden bug-scan expectations after removing Load Saved and Check Quality buttons. -->
+<style>
+:root {
+  --blue:#06195f;
+  --blue2:#0b35c9;
+  --gold:#f7c948;
+  --gold2:#fff2a8;
+  --black:#03040a;
+  --white:#fffaf0;
+  --glass:rgba(4,10,40,.76);
+  --glass2:rgba(7,18,70,.70);
+  --line:rgba(247,201,72,.34);
+  --shadow:0 18px 55px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color:var(--white);
+  background:
+    radial-gradient(circle at 8% 8%, rgba(247,201,72,.30), transparent 22%),
+    radial-gradient(circle at 82% 14%, rgba(65,110,255,.40), transparent 26%),
+    radial-gradient(circle at 55% 95%, rgba(247,201,72,.18), transparent 26%),
+    linear-gradient(135deg,#01030d 0%,#06195f 42%,#02030b 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.30) 1px, transparent 1px),
+    radial-gradient(circle, rgba(247,201,72,.25) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0%, rgba(255,255,255,.06) 45%, transparent 70%);
+  background-size:58px 58px, 105px 105px, 420px 420px;
+  animation:stars 28s linear infinite, glowSweep 16s ease-in-out infinite alternate;
+  opacity:.70;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  pointer-events:none;
+  background:conic-gradient(from 180deg, transparent, rgba(247,201,72,.08), transparent, rgba(42,86,255,.13), transparent);
+  animation:slowSpin 34s linear infinite;
+  opacity:.55;
+}
+@keyframes stars{from{background-position:0 0,0 0,0 0}to{background-position:0 760px,390px 980px,300px 0}}
+@keyframes glowSweep{to{filter:brightness(1.18)}}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+@keyframes floatGlow{0%,100%{transform:translateY(0) scale(1);opacity:.55}50%{transform:translateY(-18px) scale(1.08);opacity:1}}
+.floatingGlow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floatingGlow span{position:absolute;font-size:clamp(18px,3vw,42px);filter:drop-shadow(0 0 16px rgba(247,201,72,.9));animation:floatGlow 6s ease-in-out infinite;color:var(--gold2)}
+.floatingGlow span:nth-child(1){left:4%;top:18%;animation-delay:.2s}
+.floatingGlow span:nth-child(2){right:7%;top:28%;animation-delay:1.4s}
+.floatingGlow span:nth-child(3){left:12%;bottom:17%;animation-delay:2.2s}
+.floatingGlow span:nth-child(4){right:12%;bottom:10%;animation-delay:3.1s}
+.floatingGlow span:nth-child(5){left:48%;top:9%;animation-delay:4s}
+.wrap{max-width:1380px;margin:auto;padding:24px;position:relative;z-index:1}
+.hero{
+  border:1px solid rgba(247,201,72,.58);
+  border-radius:34px;
+  padding:34px clamp(20px,4vw,42px);
+  background:
+    linear-gradient(135deg,rgba(8,29,112,.94),rgba(2,4,20,.88)),
+    radial-gradient(circle at 80% 22%,rgba(247,201,72,.18),transparent 26%);
+  box-shadow:0 0 55px rgba(247,201,72,.24), var(--shadow), inset 0 0 45px rgba(255,255,255,.055);
+  overflow:hidden;
+  position:relative;
+}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 26%,rgba(247,201,72,.22),transparent 18%);pointer-events:none}
+.hero::after{
+  content:"🦋";
+  position:absolute;
+  right:34px;
+  top:24px;
+  font-size:52px;
+  filter:drop-shadow(0 0 20px var(--gold));
+  animation:butterfly 2.8s ease-in-out infinite alternate;
+}
+@keyframes butterfly{to{transform:translateY(12px) scale(1.14) rotate(4deg);opacity:.82}}
+h1{
+  margin:0;
+  font-size:clamp(34px,5.8vw,72px);
+  line-height:.95;
+  color:var(--gold2);
+  letter-spacing:-.03em;
+  text-shadow:0 0 18px rgba(247,201,72,.72), 0 6px 0 #000;
+  max-width:1020px;
+  font-weight:1000;
+}
+.sub{font-size:clamp(15px,1.7vw,20px);line-height:1.55;color:#fff1c4;max-width:1020px;margin:16px 0 0;text-shadow:0 1px 0 #000}
+.marquee{margin-top:20px;border:1px solid rgba(247,201,72,.48);border-radius:999px;overflow:hidden;background:rgba(0,0,0,.42);white-space:nowrap;box-shadow:inset 0 0 18px rgba(247,201,72,.10)}
+.marquee span{display:inline-block;padding:12px 0;color:var(--gold2);font-weight:950;animation:marquee 22s linear infinite;text-shadow:0 0 10px rgba(247,201,72,.5)}
+@keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.controls,.outputs,.presetBox,.sunoPanel,.extraSection{
+  margin-top:18px;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:linear-gradient(145deg,rgba(4,10,40,.82),rgba(2,3,14,.74));
+  padding:18px;
+  box-shadow:var(--shadow),0 0 28px rgba(11,53,201,.20), inset 0 0 22px rgba(255,255,255,.035);
+}
+.controls{position:relative;z-index:4;backdrop-filter:blur(10px)}
+.buttonRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:950;
+  cursor:pointer;
+  color:#07133d;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  box-shadow:0 10px 20px rgba(0,0,0,.28),0 0 18px rgba(247,201,72,.30);
+  transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  font-size:14px;
+}
+button:hover{transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 12px 24px rgba(0,0,0,.33),0 0 22px rgba(247,201,72,.42)}
+button.secondary{background:linear-gradient(135deg,#ffffff,#b7c7ff);color:#071a66}
+button.danger{background:linear-gradient(135deg,#ffb6b6,#ff4f4f);color:#260000}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.card{
+  border:1px solid rgba(247,201,72,.32);
+  border-radius:24px;
+  padding:16px;
+  background:linear-gradient(150deg,var(--glass),rgba(1,3,16,.76));
+  box-shadow:0 0 22px rgba(247,201,72,.10),0 14px 28px rgba(0,0,0,.22), inset 0 0 20px rgba(255,255,255,.04);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover{transform:translateY(-2px);border-color:rgba(247,201,72,.55);box-shadow:0 0 30px rgba(247,201,72,.16),0 16px 34px rgba(0,0,0,.28)}
+.card h2,.outputs h2,.presetBox h2,.sunoPanel h2{font-size:clamp(16px,1.8vw,20px);margin:0 0 12px;color:var(--gold2);line-height:1.18;text-shadow:0 0 10px rgba(247,201,72,.32)}
+label{display:block;color:#ffeeb0;font-weight:950;margin:12px 0 7px;font-size:13px;letter-spacing:.01em}
+select,input,textarea{
+  width:100%;
+  border:1px solid rgba(247,201,72,.36);
+  border-radius:15px;
+  background:linear-gradient(180deg,#08113e,#05091f);
+  color:#fff;
+  padding:12px;
+  font-size:15px;
+  outline:none;
+  box-shadow:inset 0 0 16px rgba(0,0,0,.25);
+}
+textarea{min-height:94px;resize:vertical;line-height:1.45}
+select:focus,input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(247,201,72,.20), inset 0 0 16px rgba(0,0,0,.25);border-color:rgba(247,201,72,.70)}
+.extraGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.outputBlock{margin-top:14px}
+pre{
+  white-space:pre-wrap;
+  word-wrap:break-word;
+  min-height:190px;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.035));
+  border:1px solid rgba(247,201,72,.28);
+  border-radius:18px;
+  padding:16px;
+  line-height:1.58;
+  color:#fffdf2;
+  font-size:14px;
+  overflow:auto;
+}
+.note{font-size:13px;color:#e9d68c;line-height:1.45;margin-top:10px}
+.scrollBtns{position:fixed;right:16px;bottom:20px;display:flex;flex-direction:column;gap:10px;z-index:8}
+.scrollBtns button{width:50px;height:50px;padding:0;font-size:18px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);padding:12px 18px;border-radius:999px;background:#08113e;border:1px solid var(--gold);color:var(--gold2);display:none;z-index:20;box-shadow:0 0 22px rgba(247,201,72,.35)}
+.historyList{display:grid;gap:12px;margin-top:14px}
+.historyItem{border:1px solid rgba(247,201,72,.28);border-radius:18px;background:rgba(255,255,255,.052);padding:14px}
+.historyMeta{font-size:12px;color:#e9d68c;margin-bottom:8px;font-weight:950}
+.historyText{max-height:180px;overflow:auto;white-space:pre-wrap;word-break:break-word;color:#fffdf2;line-height:1.45;margin:0 0 10px}
+.emptyHistory{color:#e9d68c;font-size:14px;margin-top:10px}
+.qualityScore{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:950;margin:8px 0 12px;border:1px solid rgba(247,201,72,.45);background:rgba(247,201,72,.13);color:var(--gold2)}
+.qualityList{margin:0;padding-left:20px;line-height:1.55;color:#fffdf2}.qualityList li{margin:5px 0}.qualityGood{color:#b8ffca}.qualityWarn{color:#ffeeb0}.qualityBad{color:#ffb6b6}
+.sunoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:12px}
+.chipWrap{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.chip{border:1px solid rgba(247,201,72,.36);background:linear-gradient(135deg,rgba(7,11,36,.9),rgba(11,53,201,.25));color:#fff7ce;border-radius:999px;padding:9px 12px;font-weight:850;cursor:pointer;box-shadow:none}
+.chip.selected{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#07133d;box-shadow:0 0 15px rgba(247,201,72,.35)}
+.sliderRow{display:grid;grid-template-columns:1fr 70px;gap:10px;align-items:center;margin:8px 0 14px}.sliderRow input[type=range]{padding:0;border:0;background:transparent}.sliderValue{font-weight:950;color:var(--gold2);text-align:right}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.grid,.extraGrid,.sunoGrid{grid-template-columns:1fr}.wrap{padding:14px}.hero{padding:22px}.hero::after{font-size:34px;right:18px;top:18px}.buttonRow{gap:8px}button{width:100%;justify-content:center}.scrollBtns{right:10px;bottom:14px}.scrollBtns button{width:44px;height:44px}.card{padding:14px}pre{font-size:13px}}
+@media(max-width:480px){h1{font-size:34px}.sub{font-size:14px}.controls,.outputs,.presetBox,.sunoPanel{padding:14px;border-radius:22px}select,input,textarea{font-size:14px}.floatingGlow span{display:none}}
+
+
+/* MOBILE USABILITY PATCH */
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+*, *::before, *::after { max-width:100%; }
+img, svg, video, canvas { max-width:100%; height:auto; }
+.wrap { width:100%; max-width:1300px; overflow-x:hidden; }
+.grid, .extraGrid, .sunoGrid, .marketingGrid, .gptGrid, .outputGrid, .historyGrid {
+  width:100%;
+  min-width:0;
+}
+.card, .controls, .outputs, .presetBox, .sunoPanel, .marketingSuite, .gptPanel, .historyPanel, .qualityPanel, .videoPanel {
+  min-width:0;
+  overflow:hidden;
+}
+.buttonRow { display:flex; flex-wrap:wrap; align-items:center; }
+.buttonRow button, button { white-space:normal; line-height:1.2; min-height:44px; }
+select, input, textarea, pre {
+  max-width:100%;
+  min-width:0;
+}
+pre {
+  overflow-x:auto;
+  white-space:pre-wrap;
+  word-break:break-word;
+  overflow-wrap:anywhere;
+}
+.chipRow, .chips, .chipWrap { display:flex; flex-wrap:wrap; gap:8px; min-width:0; }
+.chip, .chipBtn { white-space:normal; }
+
+@media (max-width: 700px) {
+  .wrap { padding:10px; }
+  .hero { padding:18px 14px; border-radius:22px; }
+  h1 { font-size:clamp(28px, 9vw, 40px); line-height:1.05; }
+  .sub { font-size:14px; line-height:1.45; }
+  .marquee { border-radius:18px; }
+  .marquee span { font-size:13px; }
+  .controls, .outputs, .presetBox, .sunoPanel, .marketingSuite, .gptPanel, .historyPanel, .qualityPanel, .videoPanel {
+    padding:12px;
+    border-radius:20px;
+    margin-top:14px;
+  }
+  .grid, .extraGrid, .sunoGrid, .marketingGrid, .gptGrid, .outputGrid, .historyGrid {
+    grid-template-columns:1fr !important;
+    gap:12px;
+  }
+  .card { padding:12px; border-radius:18px; }
+  .card h2, .outputBlock h2 { font-size:16px; line-height:1.25; }
+  label { font-size:13px; }
+  select, input, textarea { font-size:16px; padding:11px; border-radius:14px; }
+  textarea { min-height:82px; }
+  .buttonRow { gap:8px; }
+  .buttonRow button, button {
+    flex:1 1 145px;
+    width:auto !important;
+    padding:11px 12px;
+    font-size:14px;
+  }
+  pre { font-size:13px; line-height:1.45; min-height:140px; padding:12px; }
+  .scrollBtns {
+    right:8px;
+    bottom:8px;
+    gap:6px;
+    opacity:.86;
+    pointer-events:none;
+  }
+  .scrollBtns button {
+    width:38px !important;
+    height:38px !important;
+    min-height:38px;
+    padding:0 !important;
+    font-size:15px;
+    pointer-events:auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrap { padding:8px; }
+  .hero { padding:16px 12px; }
+  .buttonRow button, button { flex:1 1 100%; font-size:14px; }
+  .scrollBtns { bottom:72px; right:6px; }
+  .scrollBtns button { width:34px !important; height:34px !important; min-height:34px; font-size:14px; }
+  pre { font-size:12.5px; }
+}
+
+
+
+/* HIGH-CONTRAST DROPDOWN / TEXT VISIBILITY PATCH */
+select, input, textarea {
+  color:#ffffff !important;
+  background:#05091f !important;
+  -webkit-text-fill-color:#ffffff;
+  caret-color:#f7c948;
+}
+select option, select optgroup {
+  background:#05091f !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff;
+  font-weight:700;
+}
+select option:checked, select option:hover {
+  background:#0b35c9 !important;
+  color:#fff2a8 !important;
+}
+input::placeholder, textarea::placeholder {
+  color:#d9d9ff !important;
+  opacity:1;
+}
+label, .card h2, .outputs h2, .presetBox h2, .sunoPanel h2 {
+  color:#fff2a8 !important;
+}
+.card, .controls, .outputs, .presetBox, .sunoPanel, .marketingSuite, .gptPanel, .historyPanel, .qualityPanel, .videoPanel {
+  color:#ffffff !important;
+}
+
+/* COLLAPSIBLE PROMPT HISTORY PATCH */
+#promptHistorySection{padding:0;overflow:hidden}
+.promptHistoryDetails{border-radius:26px;overflow:hidden}
+.promptHistoryDetails summary{
+  list-style:none;
+  cursor:pointer;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:#fff2a8;
+  font-weight:1000;
+  font-size:clamp(16px,1.8vw,20px);
+  text-shadow:0 0 10px rgba(247,201,72,.32);
+}
+.promptHistoryDetails summary::-webkit-details-marker{display:none}
+.promptHistoryDetails summary::after{
+  content:"Open ↓";
+  border:1px solid rgba(247,201,72,.42);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:13px;
+  color:#07133d;
+  background:linear-gradient(135deg,#fff2a8,#f7c948);
+  box-shadow:0 0 16px rgba(247,201,72,.25);
+}
+.promptHistoryDetails[open] summary::after{content:"Close ↑"}
+.promptHistoryInner{padding:0 18px 18px}
+.promptHistoryDetails:not([open]){min-height:auto}
+@media(max-width:700px){.promptHistoryDetails summary{padding:14px;font-size:16px}.promptHistoryInner{padding:0 12px 12px}.promptHistoryDetails summary::after{font-size:12px;padding:7px 10px}}
+
+</style>
+</head>
+<body>
+<div class="floatingGlow"><span>✦</span><span>🦋</span><span>✨</span><span>✧</span><span>🕊️</span></div>
+<div class="scrollBtns">
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})">↓</button>
+</div>
+<div class="wrap">
+<header class="hero">
+<h1>Spiritual Affirmation Poster Prompt Generator</h1>
+<p class="sub">A luxury royal blue + gold prompt generator for bold spiritual breakthrough posters, emotional testimony art, boundary-breaking faith visuals, mockups, videos, Suno song ideas, and marketing copy.</p>
+<div class="marquee"><span>✨ Scroll-Stopping Spiritual Posters • Premium Images • Healing Energy • No Crowns Ever • Glowing Butterflies Only 🦋 ✨</span></div>
+</header>
+<section class="controls">
+<div class="buttonRow">
+<button onclick="generatePrompt()">Generate Prompt</button>
+<button class="secondary" onclick="randomizeAll()">Smart Random</button>
+<button class="secondary" onclick="copyText('mainOutput')">Copy Main Prompt</button>
+<button class="secondary" onclick="saveAll()">Save</button>
+<button class="danger" onclick="clearAll()">Clear</button>
+</div>
+</section>
+<section class="presetBox">
+<label>Load A Ready-Made Preset</label>
+<select id="presetSelect">
+<option>None</option>
+<option>Armor Of God</option>
+<option>Beauty From Ashes</option>
+<option>Breaking Chains</option>
+<option>Chosen On Purpose</option>
+<option>Covered By Grace</option>
+<option>Cry It All Out</option>
+<option>Deliverance Night</option>
+<option>Emotional Rebirth</option>
+<option>Faith Over Fear</option>
+<option>Forgiven And Free</option>
+<option>God Is Restoring Me</option>
+<option>Healing In The Rain</option>
+<option>Heaven Hears Me</option>
+<option>Identity Restored</option>
+<option>Joy After Darkness</option>
+<option>Letting Go Of Pain</option>
+<option>Peace In The Storm</option>
+<option>Prayer Changes Things</option>
+<option>Protected By God</option>
+<option>Rebuilt By Grace</option>
+<option>Restoration Season</option>
+<option>Rising Again</option>
+<option>Victory Through Faith</option>
+<option>Walking Into Purpose</option>
+<option>Worthy And Chosen</option>
+</select>
+<div class="buttonRow" style="margin-top:12px">
+<button onclick="loadPreset()">Load Preset</button>
+<button class="secondary" onclick="generateVariations()">Generate 3 More Variations</button>
+</div>
+</section>
+<main class="grid">
+<section class="card">
+<h2>Object / Main Scene</h2>
+<select data-category="Object / Main Scene" id="object___main_scene"><option>None</option>
+<option>after-the-breakthrough worship scene</option>
+<option>altar of surrender moment</option>
+<option>angelic breakthrough scene</option>
+<option>ashes-to-glory transformation scene</option>
+<option>battle scars turning into testimony</option>
+<option>beach healing sanctuary</option>
+<option>boundary-breaking freedom scene</option>
+<option>broken chains transformation</option>
+<option>celestial prayer room</option>
+<option>chains falling at the altar</option>
+<option>cinematic storm breakthrough</option>
+<option>crossroad of healing and purpose</option>
+<option>crying surrender scene</option>
+<option>deliverance battlefield</option>
+<option>divine feminine warrior</option>
+<option>divine rescue in the wilderness</option>
+<option>divine turnaround poster scene</option>
+<option>dry bones rising scene</option>
+<option>emotional rebirth scene</option>
+<option>emotional testimony spotlight</option>
+<option>faith healing landscape</option>
+<option>faith rising from ruins</option>
+<option>faith warrior stance</option>
+<option>feminine restoration moment</option>
+<option>fire-refined breakthrough scene</option>
+<option>freedom march through light</option>
+<option>glory after the grave scene</option>
+<option>glowing Bible altar</option>
+<option>glowing cross landscape</option>
+<option>God carried me scene</option>
+<option>God pulled me out moment</option>
+<option>grace-covered battlefield exit</option>
+<option>healing after the breaking scene</option>
+<option>heaven touching earth moment</option>
+<option>heavenly cloud sanctuary</option>
+<option>holy confidence reveal</option>
+<option>holy fire atmosphere</option>
+<option>I am still standing scene</option>
+<option>identity rising from ashes</option>
+<option>inner child healing sanctuary</option>
+<option>inspirational mountain path</option>
+<option>joy breaking through tears</option>
+<option>last tear before victory scene</option>
+<option>lavender healing field</option>
+<option>light bursting through prison walls</option>
+<option>luxury devotion scene</option>
+<option>miracle at midnight scene</option>
+<option>miracle sunrise moment</option>
+<option>mountain-moving faith scene</option>
+<option>new chapter doorway of light</option>
+<option>ocean healing atmosphere</option>
+<option>oil of joy restoration scene</option>
+<option>open heaven scene</option>
+<option>overcomer testimony portrait</option>
+<option>peace after pain scene</option>
+<option>peace after spiritual war scene</option>
+<option>prayer breakthrough visual</option>
+<option>prayer closet glow</option>
+<option>prayer turning into power scene</option>
+<option>promises blooming in desert</option>
+<option>purple lightning battlefield</option>
+<option>purpose awakening scene</option>
+<option>rain healing transformation</option>
+<option>rebuilt from rubble scene</option>
+<option>redemption runway scene</option>
+<option>release-and-rise liberation scene</option>
+<option>restoration journey scene</option>
+<option>river of renewal scene</option>
+<option>sacred comeback scene</option>
+<option>sanctuary garden</option>
+<option>shadow-to-light transformation</option>
+<option>shame breaking off scene</option>
+<option>soul exhale moment</option>
+<option>spiritual armor portrait</option>
+<option>spiritual freedom ceremony</option>
+<option>spiritual prison doors opening</option>
+<option>spiritual warfare moment</option>
+<option>standing after the storm scene</option>
+<option>surrender to God scene</option>
+<option>tears watering the miracle</option>
+<option>testimony rising scene</option>
+<option>the breakthrough door opens</option>
+<option>the burden drops scene</option>
+<option>the enemy lost scene</option>
+<option>the veil lifting scene</option>
+<option>transformation shoreline</option>
+<option>unbound worship moment</option>
+<option>victorious breakthrough scene</option>
+<option>victory after the valley scene</option>
+<option>voice returning after silence</option>
+<option>walking in purpose scene</option>
+<option>walls of fear collapsing</option>
+<option>warm sunset breakthrough</option>
+<option>warrior prayer atmosphere</option>
+<option>wilderness-to-wonder scene</option>
+<option>wings of resilience moment</option>
+<option>worship after survival scene</option>
+<option>worship surrender scene</option>
+<option>wrapped in grace scene</option>
+<option>you cannot bury me scene</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="object___main_scene_custom" placeholder="Custom Object / Main Scene overrides dropdown..."/>
+<button class="lockBtn" id="object___main_scene_lock" onclick="toggleLock('object___main_scene')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Main Message / Theme</h2>
+<select data-category="Main Message / Theme" id="main_message___theme"><option>None</option>
+<option>abundance after suffering</option>
+<option>anxiety into peace</option>
+<option>beauty from ashes</option>
+<option>becoming whole again</option>
+<option>boundaries broken by faith</option>
+<option>breaking generational cycles</option>
+<option>breaking spiritual chains</option>
+<option>breaking through fear</option>
+<option>called out of darkness</option>
+<option>chosen with purpose</option>
+<option>confidence restored</option>
+<option>courage after collapse</option>
+<option>covered by grace</option>
+<option>deliverance from fear</option>
+<option>divine comeback energy</option>
+<option>divine identity</option>
+<option>divine rescue and restoration</option>
+<option>emotional healing</option>
+<option>faith over fear</option>
+<option>forgiveness and freedom</option>
+<option>freedom from old labels</option>
+<option>freedom from shame</option>
+<option>glory after survival</option>
+<option>God broke the cycle</option>
+<option>God did not leave me there</option>
+<option>God is bigger than what broke me</option>
+<option>God is restoring me</option>
+<option>God turned my pain into power</option>
+<option>grief into growth</option>
+<option>healing after heartbreak</option>
+<option>healing that shakes the room</option>
+<option>Heaven answered my tears</option>
+<option>holy boldness rising</option>
+<option>holy fire in my bones</option>
+<option>hope after darkness</option>
+<option>I am breaking free</option>
+<option>I am coming out stronger</option>
+<option>I am done shrinking</option>
+<option>I am free in my spirit</option>
+<option>I am healed enough to rise</option>
+<option>I am no longer bound</option>
+<option>I am not what happened to me</option>
+<option>I am stepping into holy boldness</option>
+<option>I survived and still believe</option>
+<option>identity after trauma</option>
+<option>identity in Christ</option>
+<option>joy after pain</option>
+<option>joy after surrender</option>
+<option>letting go of trauma</option>
+<option>liberation through grace</option>
+<option>miracle after the mess</option>
+<option>My breakthrough has arrived</option>
+<option>My chains do not define me</option>
+<option>My faith is fighting back</option>
+<option>My pain became purpose</option>
+<option>My tears became testimony</option>
+<option>new life after loss</option>
+<option>no longer afraid</option>
+<option>outgrowing old pain</option>
+<option>overcoming spiritual heaviness</option>
+<option>peace in the storm</option>
+<option>power after prayer</option>
+<option>promises over pain</option>
+<option>protected by God</option>
+<option>purpose after rejection</option>
+<option>rebirth and renewal</option>
+<option>rebuilding confidence</option>
+<option>rebuilt but not the same</option>
+<option>reclaiming my voice</option>
+<option>redemption story</option>
+<option>released from bondage</option>
+<option>released from survival mode</option>
+<option>restoration season</option>
+<option>rising again stronger</option>
+<option>rising from rejection</option>
+<option>sacred self-worth</option>
+<option>set free by grace</option>
+<option>shattering limitations</option>
+<option>spiritual breakthrough</option>
+<option>spiritual protection</option>
+<option>standing on God’s promises</option>
+<option>strength after silence</option>
+<option>strength through faith</option>
+<option>surrender to healing</option>
+<option>The burden breaks today</option>
+<option>the comeback is spiritual</option>
+<option>The grave could not hold me</option>
+<option>The silence is breaking</option>
+<option>the storm trained me</option>
+<option>This is my comeback season</option>
+<option>trusting God again</option>
+<option>trusting God with the ending</option>
+<option>unashamed and unbound</option>
+<option>victory over darkness</option>
+<option>walking in divine authority</option>
+<option>walking into purpose</option>
+<option>warrior after wounded</option>
+<option>worship through the wreckage</option>
+<option>worthy and chosen</option>
+<option>wrapped in divine peace</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="main_message___theme_custom" placeholder="Custom Main Message / Theme overrides dropdown..."/>
+<button class="lockBtn" id="main_message___theme_lock" onclick="toggleLock('main_message___theme')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Typography Style</h2>
+<select data-category="Typography Style" id="typography_style"><option>None</option>
+<option>alive-again handwritten script</option>
+<option>altar-call bold lettering</option>
+<option>anointed brush lettering</option>
+<option>bold cinematic serif</option>
+<option>bold freedom manifesto text</option>
+<option>bold gold embossed lettering</option>
+<option>bold prophetic declaration type</option>
+<option>bold tear-stained scripture type</option>
+<option>break every chain typography</option>
+<option>breakthrough billboard typography</option>
+<option>celestial gold serif headline</option>
+<option>chains-shatter impact lettering</option>
+<option>church revival poster type</option>
+<option>cinematic poster lettering</option>
+<option>clean modern luxury serif</option>
+<option>cry-to-victory script</option>
+<option>divine comeback typography</option>
+<option>dramatic Pinterest quote typography</option>
+<option>elegant brush script</option>
+<option>elegant handwritten script</option>
+<option>emotional testimony title type</option>
+<option>faith-fueled headline lettering</option>
+<option>fire-anointed scripture lettering</option>
+<option>freedom declaration typography</option>
+<option>glory-filled title treatment</option>
+<option>glossy bubble lettering</option>
+<option>glowing chrome lettering</option>
+<option>glowing gold calligraphy</option>
+<option>glowing layered typography</option>
+<option>glowing testimony script</option>
+<option>gold foil handwritten overlay</option>
+<option>gold tear-drop lettering</option>
+<option>gospel magazine cover typography</option>
+<option>hallelujah handwritten script</option>
+<option>handwritten emotional script</option>
+<option>healing manifesto typography</option>
+<option>healing proclamation typography</option>
+<option>heaven-opened headline type</option>
+<option>heavenly scripture typography</option>
+<option>high contrast serif typography</option>
+<option>holy bold serif lettering</option>
+<option>holy fire brush script</option>
+<option>holy resilience lettering</option>
+<option>inspirational battlecry text</option>
+<option>large dimensional headline text</option>
+<option>large revival headline text</option>
+<option>liberation quote typography</option>
+<option>luxury editorial lettering</option>
+<option>luxury fantasy typography</option>
+<option>metallic gold serif</option>
+<option>midnight prayer lettering</option>
+<option>minimal clean typography</option>
+<option>miracle testimony typography</option>
+<option>modern glam typography</option>
+<option>moody handwritten typography</option>
+<option>mountain-moving title text</option>
+<option>ornate scripture styling</option>
+<option>overcomer poster typography</option>
+<option>Pinterest viral quote style</option>
+<option>polished magazine typography</option>
+<option>powerful devotional headline</option>
+<option>prayer-warrior bold type</option>
+<option>premium layered serif</option>
+<option>promise-filled script lettering</option>
+<option>purple neon script</option>
+<option>radiant divine typography</option>
+<option>rebirth editorial typography</option>
+<option>redemption title lettering</option>
+<option>release-and-rise text style</option>
+<option>restoration sermon typography</option>
+<option>royal blue luxury lettering</option>
+<option>sacred courage typography</option>
+<option>scripture-meets-editorial text</option>
+<option>semi-transparent glowing text</option>
+<option>set-free statement typography</option>
+<option>sharp inspirational lettering</option>
+<option>shattered-chain lettering</option>
+<option>soft feminine script</option>
+<option>soft tears bold hope type</option>
+<option>soul-stirring quote typography</option>
+<option>spiritual breakthrough title</option>
+<option>stacked affirmation typography</option>
+<option>storm-lit typography</option>
+<option>storm-to-glory typography</option>
+<option>tearful victory typography</option>
+<option>tears-to-testimony script</option>
+<option>testimony wall-art lettering</option>
+<option>textured gold foil lettering</option>
+<option>theatrical gospel poster text</option>
+<option>ultra-bold title typography</option>
+<option>unbound luxury headline</option>
+<option>victory altar typography</option>
+<option>victory shout lettering</option>
+<option>vintage devotional lettering</option>
+<option>warm cinematic script</option>
+<option>warrior worship typography</option>
+<option>white serif with gold accents</option>
+<option>worship anthem title type</option>
+<option>worship-inspired lettering</option>
+<option>written-in-gold faith text</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="typography_style_custom" placeholder="Custom Typography Style overrides dropdown..."/>
+<button class="lockBtn" id="typography_style_lock" onclick="toggleLock('typography_style')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Character Type</h2>
+<select data-category="Character Type" id="character_type"><option>None</option>
+<option>African American glam woman</option>
+<option>angelic feminine warrior</option>
+<option>anointed feminine leader</option>
+<option>Bible-holding overcomer</option>
+<option>body-positive faith creator</option>
+<option>bold redeemed woman</option>
+<option>breakthrough prayer woman</option>
+<option>breakthrough survivor woman</option>
+<option>chain-breaking faith woman</option>
+<option>chosen overcomer woman</option>
+<option>cinematic healing woman</option>
+<option>confident curvy woman</option>
+<option>covered survivor silhouette</option>
+<option>crying emotional woman</option>
+<option>curvy deliverance woman</option>
+<option>curvy faith warrior</option>
+<option>curvy woman breaking free</option>
+<option>deliverance warrior</option>
+<option>divine comeback woman</option>
+<option>divinely protected daughter</option>
+<option>elegant feminine silhouette</option>
+<option>emotional prayer warrior</option>
+<option>emotional restoration woman</option>
+<option>faith-filled grandmother</option>
+<option>faith-filled mother figure</option>
+<option>faith-filled survivor</option>
+<option>feminine spiritual leader</option>
+<option>free and fearless woman</option>
+<option>glam prayer warrior</option>
+<option>glamorous testimony speaker</option>
+<option>glowing Bible-centered scene</option>
+<option>glowing child of faith</option>
+<option>grace-restored woman</option>
+<option>healed but still tender woman</option>
+<option>healing beach woman</option>
+<option>healing silhouette in white</option>
+<option>heavenly warrior woman without crown</option>
+<option>holy boldness woman</option>
+<option>holy fire worshipper</option>
+<option>hopeful woman after trauma</option>
+<option>joy-restored woman</option>
+<option>liberated soul silhouette</option>
+<option>luxury devotion woman</option>
+<option>luxury spiritual heroine</option>
+<option>mature healing woman</option>
+<option>mature woman finding peace</option>
+<option>midnight prayer survivor</option>
+<option>modest faith woman</option>
+<option>modest warrior worshipper</option>
+<option>ocean surrender woman</option>
+<option>overcomer in tears</option>
+<option>peace-filled survivor woman</option>
+<option>peaceful feminine subject</option>
+<option>plus-size healing woman</option>
+<option>prayerful grandmother of faith</option>
+<option>prayerful silhouette</option>
+<option>purpose walking woman</option>
+<option>purpose-driven glam woman</option>
+<option>radiant redeemed believer</option>
+<option>radiant worship woman</option>
+<option>rain-soaked emotional woman</option>
+<option>rebuilt Christian woman</option>
+<option>redeemed daughter of God</option>
+<option>restoration journey woman</option>
+<option>restored confident woman</option>
+<option>rising testimony woman</option>
+<option>royal blue glam woman</option>
+<option>sacred strength woman</option>
+<option>sanctuary worshipper</option>
+<option>saved and set-free woman</option>
+<option>semi-realistic feminine beauty</option>
+<option>soft but powerful believer</option>
+<option>soft glam woman</option>
+<option>spirit-led creative woman</option>
+<option>spiritual armor woman</option>
+<option>spiritual breakthrough woman</option>
+<option>spiritual comeback woman</option>
+<option>standing-again survivor</option>
+<option>storm-tested woman of faith</option>
+<option>strong Black faith woman</option>
+<option>strong emotional heroine</option>
+<option>sunset shoreline woman</option>
+<option>surrender pose woman</option>
+<option>surrendered but powerful woman</option>
+<option>tearful worshipper in light</option>
+<option>testimony-bearing woman</option>
+<option>unbound beautiful woman</option>
+<option>victorious Christian woman</option>
+<option>victory-after-pain woman</option>
+<option>walking into purpose woman</option>
+<option>warrior after the wound</option>
+<option>woman called out of darkness</option>
+<option>woman covered by mercy</option>
+<option>woman leaving fear behind</option>
+<option>woman of holy resilience</option>
+<option>woman with healed heart</option>
+<option>worshipper breaking free</option>
+<option>worshipping woman in light</option>
+<option>wounded-healer woman</option>
+<option>young woman finding God again</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="character_type_custom" placeholder="Custom Character Type overrides dropdown..."/>
+<button class="lockBtn" id="character_type_lock" onclick="toggleLock('character_type')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Ethnicity</h2>
+<select data-category="Ethnicity" id="ethnicity"><option>None</option>
+<option>African American / Black</option>
+<option>Afro-Caribbean</option>
+<option>Afro-Latina</option>
+<option>Alaska Native</option>
+<option>Arab / Middle Eastern</option>
+<option>Asian American</option>
+<option>Bahamian</option>
+<option>Barbadian</option>
+<option>Belizean</option>
+<option>Biracial Black and Asian</option>
+<option>Biracial Black and White</option>
+<option>Brazilian</option>
+<option>Cambodian</option>
+<option>Cameroonian</option>
+<option>Caribbean Black</option>
+<option>Chinese</option>
+<option>Colombian</option>
+<option>Congolese</option>
+<option>Cuban</option>
+<option>Dominican</option>
+<option>East African</option>
+<option>Egyptian</option>
+<option>Ethiopian</option>
+<option>Filipina</option>
+<option>Ghanaian</option>
+<option>Haitian</option>
+<option>Hmong</option>
+<option>Indian / South Asian</option>
+<option>Indigenous / Native American</option>
+<option>Indonesian</option>
+<option>Iranian / Persian</option>
+<option>Jamaican</option>
+<option>Japanese</option>
+<option>Kenyan</option>
+<option>Korean</option>
+<option>Latina</option>
+<option>Liberian</option>
+<option>Mexican</option>
+<option>Moroccan</option>
+<option>Nigerian</option>
+<option>Pan-African beauty</option>
+<option>Puerto Rican</option>
+<option>Senegalese</option>
+<option>Somali</option>
+<option>South African</option>
+<option>Sudanese</option>
+<option>Thai</option>
+<option>Trinidadian</option>
+<option>Vietnamese</option>
+<option>West African</option>
+<option>Yoruba-inspired beauty</option>
+<option>Zulu-inspired beauty</option>
+<option>deep brown skin tone</option>
+<option>rich mahogany skin tone</option>
+<option>warm caramel skin tone</option>
+<option>golden brown skin tone</option>
+<option>honey brown skin tone</option>
+<option>cocoa brown skin tone</option>
+<option>espresso skin tone</option>
+<option>bronze skin tone</option>
+<option>chestnut skin tone</option>
+<option>almond skin tone</option>
+<option>olive skin tone</option>
+<option>porcelain skin tone</option>
+<option>fair skin tone</option>
+<option>freckled skin tone</option>
+<option>medium brown skin tone</option>
+<option>dark brown skin tone</option>
+<option>deep ebony skin tone</option>
+<option>warm beige skin tone</option>
+<option>golden tan skin tone</option>
+<option>sun-kissed brown skin tone</option>
+<option>melanin-rich glow</option>
+<option>radiant dark skin beauty</option>
+<option>soft brown complexion</option>
+<option>warm undertone complexion</option>
+<option>cool undertone complexion</option>
+<option>neutral undertone complexion</option>
+<option>mixed heritage beauty</option>
+<option>diaspora faith woman</option>
+<option>global sisterhood beauty</option>
+<option>culturally expressive woman</option>
+<option>heritage-inspired believer</option>
+<option>ancestral strength beauty</option>
+<option>faith-filled Black woman</option>
+<option>faith-filled Latina woman</option>
+<option>faith-filled Asian woman</option>
+<option>faith-filled Indigenous woman</option>
+<option>faith-filled Middle Eastern woman</option>
+<option>faith-filled Caribbean woman</option>
+<option>faith-filled African woman</option>
+<option>faith-filled biracial woman</option>
+<option>modest multicultural believer</option>
+<option>luxury editorial multicultural beauty</option>
+<option>spiritual daughter with rich heritage</option>
+<option>divine feminine from the diaspora</option>
+<option>God-covered woman of color</option>
+<option>healing woman with cultural pride</option>
+<option>redeemed woman with ancestral grace</option>
+<option>beautiful believer with natural glow</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="ethnicity_custom" placeholder="Custom Ethnicity overrides dropdown..."/>
+<button class="lockBtn" id="ethnicity_lock" onclick="toggleLock('ethnicity')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Body Type</h2>
+<select data-category="Body Type" id="body_type"><option>None</option>
+<option>average build</option>
+<option>athletic build</option>
+<option>beautiful full figure</option>
+<option>body-positive silhouette</option>
+<option>bold curvy shape</option>
+<option>broad-shouldered strong build</option>
+<option>classic hourglass figure</option>
+<option>confident plus-size body</option>
+<option>curvy and confident</option>
+<option>curvy apple shape</option>
+<option>curvy hourglass</option>
+<option>curvy pear shape</option>
+<option>curvy soft glam body</option>
+<option>curvy thick figure</option>
+<option>curvy with full hips</option>
+<option>curvy with full arms</option>
+<option>curvy with full bust</option>
+<option>curvy with soft belly</option>
+<option>full-bodied worshipper</option>
+<option>full-figured beauty</option>
+<option>full-figured prayer warrior</option>
+<option>full-figured silhouette</option>
+<option>gentle soft body</option>
+<option>graceful mature body</option>
+<option>healthy realistic body</option>
+<option>heroic strong body</option>
+<option>mid-size body</option>
+<option>modest full-coverage body</option>
+<option>natural realistic figure</option>
+<option>petite body</option>
+<option>plus-size baddie build</option>
+<option>plus-size beauty</option>
+<option>plus-size divine feminine</option>
+<option>plus-size glam figure</option>
+<option>plus-size healing body</option>
+<option>plus-size hourglass</option>
+<option>plus-size pear shape</option>
+<option>plus-size soft glam</option>
+<option>plus-size spiritual warrior</option>
+<option>plus-size woman with confidence</option>
+<option>powerful thick body</option>
+<option>real woman body</option>
+<option>rounded soft figure</option>
+<option>sculpted athletic curves</option>
+<option>soft curvy body</option>
+<option>soft feminine body</option>
+<option>soft plus-size figure</option>
+<option>strong and grounded body</option>
+<option>strong curvy body</option>
+<option>tall curvy figure</option>
+<option>thick and confident</option>
+<option>thick glam body</option>
+<option>voluptuous body</option>
+<option>wide-hipped curvy figure</option>
+<option>womanly full figure</option>
+<option>body with stretch-mark realism</option>
+<option>body with natural softness</option>
+<option>body with visible confidence</option>
+<option>covered modest curvy figure</option>
+<option>elegant body-positive figure</option>
+<option>faith-filled full figure</option>
+<option>glamorous full-figured body</option>
+<option>healed and embodied figure</option>
+<option>luxury editorial curves</option>
+<option>mature curvy figure</option>
+<option>modest athletic build</option>
+<option>modest average build</option>
+<option>modest plus-size figure</option>
+<option>natural belly softness</option>
+<option>natural curves</option>
+<option>powerful body-positive stance</option>
+<option>realistic curvy proportions</option>
+<option>soft arms and full hips</option>
+<option>soft belly and full hips</option>
+<option>soft hourglass shape</option>
+<option>spiritual warrior curves</option>
+<option>standing tall full figure</option>
+<option>unapologetic curvy body</option>
+<option>victorious full figure</option>
+<option>woman with grounded posture</option>
+<option>woman with gentle strength</option>
+<option>woman with powerful presence</option>
+<option>woman with soft curves</option>
+<option>woman with strong legs</option>
+<option>woman with wide hips</option>
+<option>body-positive grandmother figure</option>
+<option>body-positive mother figure</option>
+<option>curvy mature woman</option>
+<option>full-figured elder beauty</option>
+<option>mid-size glam woman</option>
+<option>plus-size mature beauty</option>
+<option>soft thick body</option>
+<option>thick hourglass figure</option>
+<option>thick pear-shaped body</option>
+<option>tall plus-size body</option>
+<option>short curvy body</option>
+<option>compact strong body</option>
+<option>statuesque curvy figure</option>
+<option>full-bodied sacred beauty</option>
+<option>curvy figure in modest clothing</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="body_type_custom" placeholder="Custom Body Type overrides dropdown..."/>
+<button class="lockBtn" id="body_type_lock" onclick="toggleLock('body_type')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Pose / Expression</h2>
+<select data-category="Pose / Expression" id="pose___expression"><option>None</option>
+<option>arms lifted toward heaven</option>
+<option>arms wrapped in self-comfort</option>
+<option>breaking chains apart</option>
+<option>breaking invisible walls</option>
+<option>breathing out old pain</option>
+<option>crying in surrender</option>
+<option>crying while smiling in faith</option>
+<option>dropping chains to the floor</option>
+<option>embracing a new dawn</option>
+<option>embracing divine light</option>
+<option>emotional breakthrough scream</option>
+<option>exhaling survival mode</option>
+<option>eyes closed receiving peace</option>
+<option>face lifted into breakthrough light</option>
+<option>facing the sunrise</option>
+<option>falling to knees in worship</option>
+<option>fists open in release</option>
+<option>hand reaching through light</option>
+<option>hands breaking spiritual ropes</option>
+<option>hands lifted with tears</option>
+<option>hands open in surrender</option>
+<option>hands over heart</option>
+<option>hands over mouth in awe</option>
+<option>head bowed in surrender</option>
+<option>heart glowing through chest</option>
+<option>holding a broken chain piece</option>
+<option>holding glowing Bible</option>
+<option>holding scripture close</option>
+<option>holding shield of faith</option>
+<option>holding sword upward</option>
+<option>hugging herself in healing</option>
+<option>kneeling as chains fall</option>
+<option>kneeling beside Bible</option>
+<option>kneeling in golden rain</option>
+<option>kneeling in prayer</option>
+<option>laughing after tears</option>
+<option>letting old labels fall</option>
+<option>lifting face into mercy</option>
+<option>lifting hands in victory</option>
+<option>looking back at broken chains</option>
+<option>looking forward with holy confidence</option>
+<option>looking into heaven</option>
+<option>looking upward after deliverance</option>
+<option>looking upward in faith</option>
+<option>one hand on Bible one hand raised</option>
+<option>opening arms to heaven</option>
+<option>peaceful closed eyes</option>
+<option>peaceful smile through tears</option>
+<option>powerful warrior stance</option>
+<option>prayer hands glowing</option>
+<option>praying through tears</option>
+<option>pulling away from darkness</option>
+<option>pushing open heavy doors</option>
+<option>reaching out of shadows</option>
+<option>reaching toward light</option>
+<option>reclaiming her voice posture</option>
+<option>releasing a dark cloak</option>
+<option>resting in peace posture</option>
+<option>rising from kneeling prayer</option>
+<option>rising with shoulders back</option>
+<option>running toward divine light</option>
+<option>screaming emotional release</option>
+<option>screaming freedom in worship</option>
+<option>smiling through holy tears</option>
+<option>soft emotional reflection</option>
+<option>soft tears with brave eyes</option>
+<option>standing as walls collapse</option>
+<option>standing at shoreline</option>
+<option>standing beside cross</option>
+<option>standing in divine authority</option>
+<option>standing in stormlight</option>
+<option>standing tall after collapse</option>
+<option>standing with broken chains at feet</option>
+<option>standing with confidence</option>
+<option>standing with tearful strength</option>
+<option>stepping across a glowing threshold</option>
+<option>stepping away from old self</option>
+<option>strong cinematic profile</option>
+<option>surrounded by butterflies</option>
+<option>surrounded by heavenly light</option>
+<option>tears falling into light</option>
+<option>tears turning into light</option>
+<option>touching heart in gratitude</option>
+<option>triumphant victory stance</option>
+<option>turning away from darkness</option>
+<option>turning pain into praise</option>
+<option>turning scars toward light</option>
+<option>walking barefoot from darkness</option>
+<option>walking barefoot in light</option>
+<option>walking from darkness</option>
+<option>walking into answered prayer</option>
+<option>walking out of prison doors</option>
+<option>walking through parted clouds</option>
+<option>walking through spiritual fire</option>
+<option>walking toward healing</option>
+<option>weeping at the altar</option>
+<option>whispering a prayer of release</option>
+<option>worship dance movement</option>
+<option>worshipping after the breakthrough</option>
+<option>worshipping in rain</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="pose___expression_custom" placeholder="Custom Pose / Expression overrides dropdown..."/>
+<button class="lockBtn" id="pose___expression_lock" onclick="toggleLock('pose___expression')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Spiritual Symbols</h2>
+<select data-category="Spiritual Symbols" id="spiritual_symbols"><option>None</option>
+<option>angel feathers</option>
+<option>answered-prayer light beams</option>
+<option>armor pieces glowing</option>
+<option>ashes turning to flowers</option>
+<option>Bible pages glowing with promise</option>
+<option>broken locks</option>
+<option>broken shackles</option>
+<option>broken stone tablets of fear</option>
+<option>butterflies</option>
+<option>candles</option>
+<option>chains breaking</option>
+<option>chains dissolving into gold dust</option>
+<option>clouds opening</option>
+<option>clouds shaped like open doors</option>
+<option>cross-shaped sunrise rays</option>
+<option>crosses of light</option>
+<option>divine fingerprints of light</option>
+<option>divine fire</option>
+<option>divine sword</option>
+<option>door of breakthrough</option>
+<option>doves flying</option>
+<option>dust turning into diamonds</option>
+<option>fireflies of hope</option>
+<option>flames of purification</option>
+<option>floating scripture pages</option>
+<option>flowers growing from cracks</option>
+<option>glowing altar oil</option>
+<option>glowing anointing oil</option>
+<option>glowing aura</option>
+<option>glowing Bible</option>
+<option>glowing butterflies</option>
+<option>glowing candles</option>
+<option>glowing cross</option>
+<option>glowing flowers</option>
+<option>glowing footprints</option>
+<option>glowing gold particles</option>
+<option>glowing keys</option>
+<option>glowing lanterns</option>
+<option>glowing pathway</option>
+<option>gold butterflies of freedom</option>
+<option>gold cracks of healing</option>
+<option>gold dust halo without crown</option>
+<option>gold tear drops</option>
+<option>golden prayer smoke</option>
+<option>grace ribbon of light</option>
+<option>heart stitched with gold light</option>
+<option>heavenly hands of light</option>
+<option>heavenly mist</option>
+<option>holy fire circle</option>
+<option>holy light beams</option>
+<option>keys of freedom</option>
+<option>lanterns along the path</option>
+<option>lavender flowers</option>
+<option>light breaking prison bars</option>
+<option>light portal</option>
+<option>light-filled scars</option>
+<option>lightning energy</option>
+<option>mercy light falling</option>
+<option>miracle rain drops</option>
+<option>miracle water reflections</option>
+<option>ocean waves</option>
+<option>oil lamp of faith</option>
+<option>open heaven staircase</option>
+<option>open prayer journal</option>
+<option>parted storm clouds</option>
+<option>petals of restoration</option>
+<option>prayer hands</option>
+<option>prayer smoke turning to doves</option>
+<option>promise scrolls</option>
+<option>purple roses</option>
+<option>radiant doorway</option>
+<option>radiant smoke</option>
+<option>redemption roses</option>
+<option>river of living water</option>
+<option>roots turning into wings</option>
+<option>roses and petals</option>
+<option>sacred gold thread</option>
+<option>sanctuary candles</option>
+<option>shattered mirror pieces turning to light</option>
+<option>shield glowing with scripture</option>
+<option>shield of faith</option>
+<option>sparks of revival</option>
+<option>spiritual chains</option>
+<option>spiritual gates opening</option>
+<option>storm clouds</option>
+<option>sunbeam cross reflection</option>
+<option>sunrise rays</option>
+<option>tears becoming pearls</option>
+<option>testimony scroll</option>
+<option>thorns turning into roses</option>
+<option>transformation smoke</option>
+<option>unlocked prison doors</option>
+<option>veil tearing open</option>
+<option>victory banner without crown</option>
+<option>victory sparks</option>
+<option>water washing chains away</option>
+<option>white doves in golden mist</option>
+<option>wings of light without angels</option>
+<option>worship light circles</option>
+<option>worship ribbons of light</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="spiritual_symbols_custom" placeholder="Custom Spiritual Symbols overrides dropdown..."/>
+<button class="lockBtn" id="spiritual_symbols_lock" onclick="toggleLock('spiritual_symbols')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Background / World</h2>
+<select data-category="Background / World" id="background___world"><option>None</option>
+<option>abandoned battlefield</option>
+<option>altar room filled with gold smoke</option>
+<option>angelic cloud kingdom</option>
+<option>answered-prayer sky</option>
+<option>battlefield turning into garden</option>
+<option>black and gold sanctuary</option>
+<option>blue-gold spiritual skyline</option>
+<option>broken prison of fear</option>
+<option>broken shoreline</option>
+<option>candlelit deliverance room</option>
+<option>cathedral of open light</option>
+<option>celestial garden of promises</option>
+<option>chains on marble floor</option>
+<option>cinematic ocean sunset</option>
+<option>cloud stairway to breakthrough</option>
+<option>cloudy mountain sanctuary</option>
+<option>cosmic worship horizon</option>
+<option>cracked earth landscape</option>
+<option>cracked wall of limitations</option>
+<option>dark storm valley</option>
+<option>deliverance battlefield</option>
+<option>desert blooming after prayer</option>
+<option>divine courtroom of mercy</option>
+<option>divine throne atmosphere</option>
+<option>doorway from darkness to dawn</option>
+<option>emotional rain beach</option>
+<option>empty room filled with heaven light</option>
+<option>fantasy prayer world</option>
+<option>field of second chances</option>
+<option>glowing Bible landscape</option>
+<option>glowing chapel doorway</option>
+<option>glowing faith skyline</option>
+<option>glowing lavender sanctuary</option>
+<option>gold-and-white heaven corridor</option>
+<option>golden rain sanctuary</option>
+<option>grace-filled wilderness</option>
+<option>healing river valley</option>
+<option>heavenly editorial studio</option>
+<option>heavenly storm clearing</option>
+<option>heavenly sunrise valley</option>
+<option>holy fire desert</option>
+<option>holy fire environment</option>
+<option>lavender storm clearing</option>
+<option>light-filled chapel ruins</option>
+<option>luxury celestial background</option>
+<option>luxury prayer room</option>
+<option>mercy-lit mountainside</option>
+<option>midnight prayer room</option>
+<option>miracle ocean horizon</option>
+<option>moody healing shoreline</option>
+<option>mountain breakthrough path</option>
+<option>mountain of answered prayers</option>
+<option>ocean of surrender</option>
+<option>open Bible universe</option>
+<option>open gates of freedom</option>
+<option>peaceful after-battle garden</option>
+<option>peaceful candle sanctuary</option>
+<option>pink and gold sky</option>
+<option>prayer garden world</option>
+<option>prayer mountain at sunrise</option>
+<option>prison doors opening to light</option>
+<option>promise land meadow</option>
+<option>purple lightning sky</option>
+<option>purple-gold prayer valley</option>
+<option>radiant heavenly atmosphere</option>
+<option>radiant testimony stage</option>
+<option>rain healing environment</option>
+<option>rain-washed stone path</option>
+<option>rebirth shoreline at dawn</option>
+<option>redemption garden path</option>
+<option>restoration beach world</option>
+<option>restoration cathedral garden</option>
+<option>river baptism glow</option>
+<option>royal blue cosmic sky</option>
+<option>royal blue heavenly horizon</option>
+<option>sacred cave of breakthrough</option>
+<option>sacred field of wildflowers</option>
+<option>sanctuary beneath open clouds</option>
+<option>sanctuary of peace</option>
+<option>shattered-wall breakthrough space</option>
+<option>soft lavender clouds</option>
+<option>spiritual warfare landscape</option>
+<option>storm clouds split by heaven</option>
+<option>storm opening to sunlight</option>
+<option>sunlit freedom courtyard</option>
+<option>sunrise over broken chains</option>
+<option>sunset miracle pathway</option>
+<option>tears-to-testimony sanctuary</option>
+<option>the valley of dry bones</option>
+<option>threshold of new beginnings</option>
+<option>torn veil temple scene</option>
+<option>transformation landscape</option>
+<option>victory battlefield</option>
+<option>victory hill under gold sky</option>
+<option>walls of fear crumbling</option>
+<option>warm golden shoreline</option>
+<option>wilderness road to purpose</option>
+<option>window of morning mercy</option>
+<option>worship atmosphere</option>
+<option>worship field under stars</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="background___world_custom" placeholder="Custom Background / World overrides dropdown..."/>
+<button class="lockBtn" id="background___world_lock" onclick="toggleLock('background___world')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Lighting Style</h2>
+<select data-category="Lighting Style" id="lighting_style"><option>None</option>
+<option>ambient candle glow</option>
+<option>answered prayer glow</option>
+<option>blue-gold divine contrast</option>
+<option>breakthrough burst lighting</option>
+<option>celestial halo haze without crown</option>
+<option>chain-shattering light flash</option>
+<option>cinematic backlight</option>
+<option>cinematic heaven rays</option>
+<option>cinematic rain reflections</option>
+<option>cross-shaped sunlight</option>
+<option>deep shadow to gold transition</option>
+<option>divine rescue spotlight</option>
+<option>dramatic gold rim light</option>
+<option>dramatic shadow lighting</option>
+<option>emotional cinematic light</option>
+<option>emotional tear highlight</option>
+<option>faith-fire illumination</option>
+<option>freedom doorway glow</option>
+<option>glory-after-darkness lighting</option>
+<option>glossy divine highlights</option>
+<option>glowing aura lighting</option>
+<option>glowing mist lighting</option>
+<option>glowing ocean light</option>
+<option>glowing scripture reflections</option>
+<option>glowing sunset lighting</option>
+<option>God-ray explosion</option>
+<option>gold dust light storm</option>
+<option>gold dust reflections</option>
+<option>gold mercy haze</option>
+<option>golden breakthrough backlight</option>
+<option>golden god rays</option>
+<option>golden rain glow</option>
+<option>healing rim light</option>
+<option>heaven opening flare</option>
+<option>heavenly cloud glow</option>
+<option>heavenly spotlight</option>
+<option>high contrast divine light</option>
+<option>high detail fantasy lighting</option>
+<option>holy confidence lighting</option>
+<option>holy fire backlight</option>
+<option>holy sunrise bloom</option>
+<option>hope breaking through shadows</option>
+<option>lavender dream glow</option>
+<option>lavender mercy glow</option>
+<option>light pouring from open doors</option>
+<option>light through prison bars</option>
+<option>luxury editorial lighting</option>
+<option>luxury Pinterest lighting</option>
+<option>midnight miracle glow</option>
+<option>miracle glow burst</option>
+<option>miracle-after-storm lighting</option>
+<option>moody blue-to-gold lighting</option>
+<option>moody storm lighting</option>
+<option>ocean reflection glow</option>
+<option>ocean sunrise healing glow</option>
+<option>peaceful afterglow</option>
+<option>pink and gold lighting</option>
+<option>prayer altar gold light</option>
+<option>prayer room candlelight</option>
+<option>prayer smoke illumination</option>
+<option>promise-land sunrise light</option>
+<option>purple lightning flashes</option>
+<option>purple storm divine flash</option>
+<option>radiant heavenly rays</option>
+<option>radiant restoration glow</option>
+<option>rain-to-gold reflections</option>
+<option>rebirth dawn lighting</option>
+<option>redemption flare lighting</option>
+<option>reflective gold lighting</option>
+<option>release glow from chest</option>
+<option>royal blue glow lighting</option>
+<option>royal blue sacred glow</option>
+<option>sacred candle-and-gold glow</option>
+<option>shimmering gold highlights</option>
+<option>soft feminine lighting</option>
+<option>soft heavenly haze</option>
+<option>soft tears sparkle lighting</option>
+<option>soft white grace glow</option>
+<option>spiritual glow effects</option>
+<option>spiritual victory burst</option>
+<option>storm breaking sunlight</option>
+<option>storm clouds cracked by light</option>
+<option>storm-to-sunrise glow</option>
+<option>sunbeam through tears</option>
+<option>sunrise breakthrough lighting</option>
+<option>tear-to-pearl sparkle light</option>
+<option>testimony spotlight</option>
+<option>the veil tearing glow</option>
+<option>threshold-of-freedom light</option>
+<option>transformational light beams</option>
+<option>ultra-bright glory flare</option>
+<option>ultra-polished glow lighting</option>
+<option>velvet shadow gold edge light</option>
+<option>victory shimmer lighting</option>
+<option>warm cinematic sunlight</option>
+<option>warm mercy illumination</option>
+<option>warrior worship light</option>
+<option>white divine illumination</option>
+<option>white-gold deliverance flare</option>
+<option>worship spotlight lighting</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="lighting_style_custom" placeholder="Custom Lighting Style overrides dropdown..."/>
+<button class="lockBtn" id="lighting_style_lock" onclick="toggleLock('lighting_style')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Color Palette</h2>
+<select data-category="Color Palette" id="color_palette"><option>None</option>
+<option>anointed amber and cream</option>
+<option>answered prayer gold and white</option>
+<option>ashes gray to glory gold</option>
+<option>black and gold</option>
+<option>black white and miracle gold</option>
+<option>blue and silver</option>
+<option>blue violet and warm gold</option>
+<option>bold black and divine yellow</option>
+<option>bold freedom blue and gold</option>
+<option>breakthrough energy palette</option>
+<option>celestial lavender and pearl</option>
+<option>celestial worship palette</option>
+<option>champagne blush and ivory</option>
+<option>champagne gold and cream</option>
+<option>cinematic spiritual palette</option>
+<option>courage crimson and champagne</option>
+<option>crimson and gold</option>
+<option>deep navy and holy gold</option>
+<option>deep plum and antique gold</option>
+<option>deep purple and gold</option>
+<option>divine fire orange and gold</option>
+<option>dusty rose and redemption gold</option>
+<option>emerald and gold</option>
+<option>emerald healing and cream</option>
+<option>emotional rain palette</option>
+<option>faith-fire crimson and gold</option>
+<option>glory blue and silver white</option>
+<option>glowing devotional palette</option>
+<option>glowing heavenly palette</option>
+<option>glowing sunset colors</option>
+<option>gold and ivory</option>
+<option>gold dust and midnight blue</option>
+<option>gold white and soft lavender</option>
+<option>golden sunrise and pearl</option>
+<option>grace blue and soft white</option>
+<option>healing mauve and ivory</option>
+<option>heaven blue and glowing ivory</option>
+<option>holy fire amber and sapphire</option>
+<option>holy white and sapphire</option>
+<option>hopeful peach and champagne</option>
+<option>joyful tangerine and cream</option>
+<option>lavender and cream</option>
+<option>lavender and gold</option>
+<option>lavender storm and gold</option>
+<option>luxury faith palette</option>
+<option>mercy blush and gold</option>
+<option>mercy white and bronze</option>
+<option>midnight blue and gold</option>
+<option>midnight navy and champagne</option>
+<option>miracle gold and cloud white</option>
+<option>miracle light palette</option>
+<option>moody grayscale and gold</option>
+<option>new dawn peach and ivory</option>
+<option>ocean blue and pearl</option>
+<option>ocean surrender blue and pearl</option>
+<option>pearl white and champagne gold</option>
+<option>pink and gold</option>
+<option>Pinterest healing palette</option>
+<option>power purple and gold</option>
+<option>premium gold contrast palette</option>
+<option>promise land green and gold</option>
+<option>purple and black</option>
+<option>purple storm and warm gold</option>
+<option>radiant cream and soft gold</option>
+<option>radiant white and gold</option>
+<option>redemption rose and ivory</option>
+<option>release gray and sunlit gold</option>
+<option>restoration green and champagne</option>
+<option>revival red and gold</option>
+<option>rich bronze and cream</option>
+<option>rose gold and ivory</option>
+<option>royal blue and gold</option>
+<option>royal blue black and glowing gold</option>
+<option>royal blue gold black white</option>
+<option>sacred blue and ivory</option>
+<option>sapphire and silver</option>
+<option>sapphire white and gold</option>
+<option>shadow black to heaven white</option>
+<option>soft blush and gold</option>
+<option>soft lavender tones</option>
+<option>soft sky blue and white gold</option>
+<option>soft tears blue and gold</option>
+<option>spiritual storm palette</option>
+<option>spiritual warfare navy and gold</option>
+<option>storm gray and miracle gold</option>
+<option>sunrise coral and gold</option>
+<option>sunrise orange and gold</option>
+<option>sunset peach and gold</option>
+<option>teal and champagne</option>
+<option>teal healing and ivory</option>
+<option>tearful blue and soft gold</option>
+<option>testimony bronze and cream</option>
+<option>velvet black and royal gold</option>
+<option>victory burgundy and gold</option>
+<option>warm bronze tones</option>
+<option>warm cream and gold</option>
+<option>warm honey and linen</option>
+<option>white and gold luxury</option>
+<option>white gold and royal blue</option>
+<option>wilderness sand and holy gold</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="color_palette_custom" placeholder="Custom Color Palette overrides dropdown..."/>
+<button class="lockBtn" id="color_palette_lock" onclick="toggleLock('color_palette')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Mood / Emotion</h2>
+<select data-category="Mood / Emotion" id="mood___emotion"><option>None</option>
+<option>anointed and unstoppable</option>
+<option>awe-filled restoration</option>
+<option>battle-tested but blessed</option>
+<option>bold and victorious</option>
+<option>bold breakthrough energy</option>
+<option>brave new beginning</option>
+<option>brave through tears</option>
+<option>breaking free of limits</option>
+<option>called and courageous</option>
+<option>calm after chaos</option>
+<option>cinematic and emotional</option>
+<option>confident and covered</option>
+<option>crying but covered</option>
+<option>deeply reflective</option>
+<option>deeply spiritual and tearful</option>
+<option>desperate but believing</option>
+<option>divine comeback courage</option>
+<option>divinely protected</option>
+<option>dreamy and peaceful</option>
+<option>emotional but powerful</option>
+<option>emotional holy release</option>
+<option>emotionally explosive hope</option>
+<option>faith-filled and hopeful</option>
+<option>faith-fueled courage</option>
+<option>fearless and faith-filled</option>
+<option>fierce spiritual warfare</option>
+<option>finally free</option>
+<option>fire in the spirit</option>
+<option>gentle but unbreakable</option>
+<option>gentle restoration</option>
+<option>glamorous and sacred</option>
+<option>glory after grief</option>
+<option>God-carried confidence</option>
+<option>grace-soaked confidence</option>
+<option>grateful and grounded</option>
+<option>healing and soft</option>
+<option>heart-opening healing</option>
+<option>heaven answered energy</option>
+<option>holy and dramatic</option>
+<option>holy boldness</option>
+<option>holy fire and healing</option>
+<option>hopeful after heartbreak</option>
+<option>I made it energy</option>
+<option>intimate surrender</option>
+<option>joyful after deliverance</option>
+<option>joyful breakthrough</option>
+<option>liberated and glowing</option>
+<option>life-changing motivation</option>
+<option>luxury devotional</option>
+<option>miracle-minded</option>
+<option>moody and cinematic</option>
+<option>no longer bound</option>
+<option>overwhelming gratitude</option>
+<option>peaceful but powerful</option>
+<option>peaceful surrender</option>
+<option>powerful rebirth</option>
+<option>powerful spiritual awakening</option>
+<option>prayer-soaked emotion</option>
+<option>prayerful and intimate</option>
+<option>prophetic and bold</option>
+<option>protected and bold</option>
+<option>quiet miracle energy</option>
+<option>quiet strength rising</option>
+<option>radiant and restored</option>
+<option>raw emotional healing</option>
+<option>raw worship release</option>
+<option>rebuilt and radiant</option>
+<option>redeemed and renewed</option>
+<option>redeemed and roaring</option>
+<option>released and restored</option>
+<option>resilient and sacred</option>
+<option>rising with purpose</option>
+<option>sacred defiance</option>
+<option>saved and set free</option>
+<option>scroll-stopping inspiration</option>
+<option>soft feminine courage</option>
+<option>soul-stirring inspiration</option>
+<option>spiritual authority</option>
+<option>spiritually fierce</option>
+<option>storm-tested strength</option>
+<option>storm-to-sunrise energy</option>
+<option>strength after struggle</option>
+<option>surrendered and safe</option>
+<option>tearful victory</option>
+<option>testimony energy</option>
+<option>trembling but trusting</option>
+<option>triumphant and glowing</option>
+<option>unashamed and free</option>
+<option>unbound and victorious</option>
+<option>uplifted and inspired</option>
+<option>valley-to-victory emotion</option>
+<option>victorious through faith</option>
+<option>victory through tears</option>
+<option>warm and comforting</option>
+<option>worshipful and radiant</option>
+<option>worshipful breakthrough</option>
+<option>worthy and chosen</option>
+<option>wounded but winning</option>
+<option>wrapped in grace</option>
+<option>yearning for peace</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="mood___emotion_custom" placeholder="Custom Mood / Emotion overrides dropdown..."/>
+<button class="lockBtn" id="mood___emotion_lock" onclick="toggleLock('mood___emotion')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Composition / Layout</h2>
+<select data-category="Composition / Layout" id="composition___layout"><option>None</option>
+<option>altar foreground with open heaven above</option>
+<option>before-and-after breakthrough split</option>
+<option>Bible and candles foreground with subject behind</option>
+<option>big headline carved through clouds</option>
+<option>broken chains framing the bottom</option>
+<option>broken wall left open sky right</option>
+<option>butterfly pathway leading to subject</option>
+<option>centered subject with headline above</option>
+<option>central doorway of light composition</option>
+<option>character emerging from shadows</option>
+<option>character framed by shattered walls</option>
+<option>character small under massive heaven sky</option>
+<option>cinematic close-up portrait composition</option>
+<option>cinematic upward camera angle</option>
+<option>close-up tears with glowing typography</option>
+<option>clouds forming natural text space</option>
+<option>collage emotional healing panels</option>
+<option>cross light as vertical center line</option>
+<option>cross light centered in background</option>
+<option>deep foreground midground background depth</option>
+<option>diagonal light beam composition</option>
+<option>diagonal path from darkness to glory</option>
+<option>dramatic bottom foreground props</option>
+<option>dramatic chain-breaking foreground</option>
+<option>editorial poster grid composition</option>
+<option>emotional portrait with light behind eyes</option>
+<option>floating prayers rising around subject</option>
+<option>floating quote panels around subject</option>
+<option>foreground Bible midground subject background heaven</option>
+<option>glowing Bible as bottom anchor</option>
+<option>glowing pathway center composition</option>
+<option>gold butterflies leading viewer eye</option>
+<option>gold light tunnel composition</option>
+<option>headline across sky composition</option>
+<option>headline between parted storm clouds</option>
+<option>headline wrapped in golden smoke</option>
+<option>kneeling subject low foreground</option>
+<option>large breakthrough door behind subject</option>
+<option>large emotional face with tiny figure below</option>
+<option>large symbol behind subject</option>
+<option>layered Pinterest quote poster</option>
+<option>left darkness right healing blend</option>
+<option>left pain right purpose composition</option>
+<option>light beams pointing to subject</option>
+<option>low-angle heroic composition</option>
+<option>low-angle victory with glowing sky</option>
+<option>luxury magazine cover layout</option>
+<option>main subject framed by clouds</option>
+<option>minimal poster with powerful symbol</option>
+<option>minimal symbolic center layout</option>
+<option>mirror of old self dissolving</option>
+<option>ocean horizon centered composition</option>
+<option>open Bible foreground composition</option>
+<option>open hands foreground with heaven sky</option>
+<option>over-the-shoulder looking at freedom</option>
+<option>pathway leading from darkness to sunrise</option>
+<option>portrait with side scripture column</option>
+<option>poster text wrapped around subject</option>
+<option>prayer altar foreground layout</option>
+<option>prayer journal foreground layout</option>
+<option>prison bars dissolving into light</option>
+<option>quote across heavenly horizon</option>
+<option>radiant cross in far background</option>
+<option>rain drops framing headline</option>
+<option>rainy close-up emotional layout</option>
+<option>rainy foreground with gold reflection</option>
+<option>rule-of-thirds cinematic layout</option>
+<option>sacred center spotlight layout</option>
+<option>scroll-stopping vertical layout</option>
+<option>shadows falling off body composition</option>
+<option>shattered glass turning into stars</option>
+<option>silhouette against heavenly light</option>
+<option>silhouette walking through open doors</option>
+<option>sky headline with tears below</option>
+<option>soft halo composition without crown</option>
+<option>spiral of light around subject</option>
+<option>split emotion-to-healing transformation</option>
+<option>stacked typography top layout</option>
+<option>storm clouds framing headline</option>
+<option>subject centered inside circle of light</option>
+<option>subject standing above broken chains</option>
+<option>subject walking into center light</option>
+<option>symmetrical devotional poster</option>
+<option>tear drop reflection composition</option>
+<option>text rising like prayer smoke</option>
+<option>text-dominant poster layout</option>
+<option>three-layer testimony poster layout</option>
+<option>threshold crossing composition</option>
+<option>top scripture bottom affirmation layout</option>
+<option>top-heavy inspirational quote layout</option>
+<option>vertical 9:16 Pinterest poster</option>
+<option>vertical wall-art testimony layout</option>
+<option>victory banner integrated into clouds</option>
+<option>walkway through parted water</option>
+<option>wide cinematic banner layout</option>
+<option>wide-open arms center composition</option>
+<option>wings of light framing subject no crown</option>
+<option>worship scene with glowing sky</option>
+<option>worship silhouette and massive sky</option>
+<option>zero-character symbolic layout</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="composition___layout_custom" placeholder="Custom Composition / Layout overrides dropdown..."/>
+<button class="lockBtn" id="composition___layout_lock" onclick="toggleLock('composition___layout')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+<section class="card">
+<h2>Art Style / Finish</h2>
+<select data-category="Art Style / Finish" id="art_style___finish"><option>None</option>
+<option>3D glossy devotional fantasy</option>
+<option>AI-enhanced cinematic realism</option>
+<option>blue-gold cinematic spiritual art</option>
+<option>bold breakthrough poster art</option>
+<option>bold glossy testimony art</option>
+<option>bold motivational faith art</option>
+<option>butterfly signature finish</option>
+<option>butterfly-glow healing art</option>
+<option>Christian fantasy poster art</option>
+<option>cinematic altar-call poster</option>
+<option>cinematic devotional illustration</option>
+<option>cinematic emotional realism</option>
+<option>cinematic faith testimony art</option>
+<option>cinematic glow finish</option>
+<option>cinematic scripture wall art</option>
+<option>deep emotional realism</option>
+<option>dimensional typography finish</option>
+<option>divine feminine faith fantasy</option>
+<option>dramatic deliverance illustration</option>
+<option>dramatic spiritual realism</option>
+<option>editorial luxury fantasy</option>
+<option>editorial testimony cover art</option>
+<option>emotion-first Christian fantasy</option>
+<option>emotional gospel poster realism</option>
+<option>faith warrior cinematic polish</option>
+<option>faith-based concept art</option>
+<option>faith-based luxury wall art</option>
+<option>fantasy movie poster finish</option>
+<option>fire-refined fantasy realism</option>
+<option>glory-after-storm poster finish</option>
+<option>glossy breakthrough digital art</option>
+<option>glossy digital painting</option>
+<option>glossy semi-realistic illustration</option>
+<option>glowing embossed finish</option>
+<option>glowing mercy digital painting</option>
+<option>gold-dust devotional artwork</option>
+<option>grace-and-glory poster art</option>
+<option>healing Pinterest poster art</option>
+<option>healing testimony poster art</option>
+<option>heaven-opened cinematic art</option>
+<option>heavenly luxury illustration</option>
+<option>high-detail fantasy realism</option>
+<option>high-end printable wall art</option>
+<option>high-impact spiritual poster</option>
+<option>holy fire editorial fantasy</option>
+<option>hyper-detailed visual storytelling</option>
+<option>inspirational freedom poster</option>
+<option>inspirational social media poster</option>
+<option>luxury affirmation artwork</option>
+<option>luxury Christian concept art</option>
+<option>luxury digital product cover style</option>
+<option>luxury editorial poster finish</option>
+<option>luxury Pinterest faith poster</option>
+<option>luxury spiritual battle poster</option>
+<option>magical realism faith art</option>
+<option>metallic gold poster polish</option>
+<option>midnight prayer cinematic realism</option>
+<option>miracle breakthrough wall art</option>
+<option>modern gospel editorial art</option>
+<option>moody cinematic poster art</option>
+<option>overcomer cinematic poster</option>
+<option>polished faith-based fantasy art</option>
+<option>premium devotional fantasy</option>
+<option>premium healing transformation art</option>
+<option>premium poster realism</option>
+<option>premium prayer warrior poster</option>
+<option>prophetic poster illustration</option>
+<option>radiant deliverance artwork</option>
+<option>radiant heavenly fantasy art</option>
+<option>redemption fantasy realism</option>
+<option>release-and-rise poster finish</option>
+<option>revival-inspired digital painting</option>
+<option>rich shadow luxury finish</option>
+<option>royal blue gold luxury finish</option>
+<option>sacred comeback poster art</option>
+<option>semi-realistic 3D beauty art</option>
+<option>soft feminine spiritual art</option>
+<option>soft glow finish</option>
+<option>soft-to-bold healing realism</option>
+<option>soul-stirring inspirational poster</option>
+<option>sparkling divine finish</option>
+<option>spiritual fantasy digital painting</option>
+<option>spiritual freedom movie poster</option>
+<option>spiritual liberation artwork</option>
+<option>spiritual testimony digital painting</option>
+<option>storm-to-glory cinematic poster</option>
+<option>stormy Christian battle art</option>
+<option>surreal healing transformation</option>
+<option>tear-to-testimony illustration</option>
+<option>tearful victory digital art</option>
+<option>testimony-based wall art finish</option>
+<option>ultra-emotional devotional poster</option>
+<option>ultra-polished AI poster</option>
+<option>unbound faith poster art</option>
+<option>victory-after-valley artwork</option>
+<option>viral faith affirmation art</option>
+<option>viral Pinterest affirmation style</option>
+<option>watercolor cloud fantasy</option>
+<option>white-gold spiritual realism</option>
+<option>worship breakthrough poster</option></select>
+<div class="fieldTools">
+<input class="customOverride" id="art_style___finish_custom" placeholder="Custom Art Style / Finish overrides dropdown..."/>
+<button class="lockBtn" id="art_style___finish_lock" onclick="toggleLock('art_style___finish')" type="button">Lock</button>
+</div>
+<div class="overrideHint">Custom text wins. Lock keeps this category safe during Smart Random.</div>
+</section>
+</main>
+<section class="extraGrid">
+<div class="card">
+<h2>Custom Text</h2>
+<label>Main Headline</label>
+<input id="main_headline" placeholder="Example: God Is Rewriting My Story"/>
+<label>Supporting Affirmation</label>
+<textarea id="supporting_affirmation" placeholder="Example: The pain left, but the wisdom stayed."></textarea>
+<label>Scripture / Footer / Signature</label>
+<input id="scripture_footer" placeholder="Example: Romans 8:28 • @Glamorousgrammyglowup"/>
+</div>
+
+</section>
+<section class="outputs" id="mainPromptOutputsSection">
+<div class="outputBlock">
+<h2>Main Prompt Output</h2>
+<pre id="mainOutput">Click Generate Prompt.</pre>
+<div class="buttonRow"><button onclick="copyText('mainOutput')">Copy Main Prompt</button><button class="secondary" onclick="downloadText('mainOutput','spiritual-affirmation-main-prompt.txt')">Download Main Prompt</button></div>
+</div>
+
+
+
+
+</section>
+
+
+<section class="outputs" id="videoPromptOutputsSection">
+  <div class="outputBlock">
+    <h2>8-Second Animated Video Script</h2>
+    <p class="note">This is the only video section. It uses the main generated concept as the source and creates a short animation-based script.</p>
+    <label>Custom Animation Direction</label>
+    <textarea id="animated_video_custom" placeholder="Optional: add a specific animation idea, transition, camera movement, or emotional beat..."></textarea>
+    <pre id="animatedVideoOutput">Generate the main prompt, then click Generate 8-Second Script.</pre>
+    <div class="buttonRow"><button onclick="generateAnimatedVideoScript()">Generate 8-Second Script</button><button class="secondary" onclick="copyText('animatedVideoOutput')">Copy 8-Second Script</button></div>
+  </div>
+</section>
+
+<section class="sunoPanel" id="sunoMusicControls">
+  <h2>🎵 Suno Music Controls</h2>
+  <p class="note">Use chips for quick style building. Style influence means inspiration/reference direction only — not copying an artist.</p>
+  <div class="sunoGrid">
+    <div class="card">
+      <h2>Genre Selection</h2>
+      <div class="chipWrap" data-chip-group="suno_genres" data-multi="true">
+        <button type="button" class="chip" data-value="cinematic gospel">Cinematic Gospel</button>
+        <button type="button" class="chip" data-value="worship ballad">Worship Ballad</button>
+        <button type="button" class="chip" data-value="gospel trap">Gospel Trap</button>
+        <button type="button" class="chip" data-value="soulful R&B gospel">Soulful R&B Gospel</button>
+        <button type="button" class="chip" data-value="spoken word prayer">Spoken Word Prayer</button>
+        <button type="button" class="chip" data-value="choir praise anthem">Choir Praise Anthem</button>
+        <button type="button" class="chip" data-value="emotional piano worship">Emotional Piano Worship</button>
+        <button type="button" class="chip" data-value="motivational pop gospel">Motivational Pop Gospel</button>
+      </div>
+      <label>Custom Genre</label>
+      <input id="suno_genre_custom" placeholder="Example: dramatic gospel soul with cinematic drums">
+    </div>
+    <div class="card">
+      <h2>Style Influence</h2>
+      <div class="chipWrap" data-chip-group="suno_style_influences" data-multi="true">
+        <button type="button" class="chip" data-value="church testimony energy">Church Testimony</button>
+        <button type="button" class="chip" data-value="tearful altar call emotion">Altar Call</button>
+        <button type="button" class="chip" data-value="victory choir lift">Victory Choir</button>
+        <button type="button" class="chip" data-value="late-night prayer intimacy">Prayer Room</button>
+        <button type="button" class="chip" data-value="breakthrough sermon cadence">Sermon Cadence</button>
+        <button type="button" class="chip" data-value="cinematic trailer rise">Trailer Rise</button>
+        <button type="button" class="chip" data-value="soulful healing confession">Healing Confession</button>
+        <button type="button" class="chip" data-value="bold freedom anthem">Freedom Anthem</button>
+      </div>
+      <label>Custom Style Influence Reference</label>
+      <input id="suno_style_custom" placeholder="Example: emotional testimony vibe, not imitating any artist">
+    </div>
+    <div class="card">
+      <h2>Audio Settings</h2>
+      <label>Weirdness</label>
+      <div class="sliderRow"><input id="suno_weirdness" type="range" min="0" max="100" value="35" data-default="35" oninput="updateSliderValues()"><span id="suno_weirdness_value" class="sliderValue">35%</span></div>
+      <label>Style Influence</label>
+      <div class="sliderRow"><input id="suno_style_influence" type="range" min="0" max="100" value="70" data-default="70" oninput="updateSliderValues()"><span id="suno_style_influence_value" class="sliderValue">70%</span></div>
+      <label>Audio Influence</label>
+      <div class="sliderRow"><input id="suno_audio_influence" type="range" min="0" max="100" value="55" data-default="55" oninput="updateSliderValues()"><span id="suno_audio_influence_value" class="sliderValue">55%</span></div>
+      <label>Custom Audio Notes</label>
+      <input id="suno_audio_custom" placeholder="Example: build from quiet tears to full choir victory">
+    </div>
+    <div class="card">
+      <h2>Vocal Type</h2>
+      <div class="chipWrap" data-chip-group="suno_vocal_type" data-multi="false">
+        <button type="button" class="chip selected" data-value="vocal">Vocal</button>
+        <button type="button" class="chip" data-value="instrumental">Instrumental</button>
+      </div>
+      <label>Custom Vocal Direction</label>
+      <input id="suno_vocal_custom" placeholder="Example: soulful female lead with choir response">
+      <div class="buttonRow" style="margin-top:14px"><button onclick="generateSunoOutputs()">Generate Suno</button></div>
+    </div>
+  </div>
+
+  <div class="outputBlock">
+    <h2>Suno Music Output</h2>
+    <p class="note">This quick Suno prompt stays inside the Suno section. Use the detailed boxes below for jingle, 30-second, 1-minute, and settings.</p>
+    <pre id="sunoOutput">Click Generate Prompt.</pre>
+    <div class="buttonRow"><button onclick="copyText('sunoOutput')">Copy Suno Prompt</button></div>
+  </div>
+  <div class="extraGrid">
+    <div class="outputBlock"><h2>Jingle</h2><pre id="sunoJingleOutput">Click Generate Suno.</pre><div class="buttonRow"><button onclick="copyText('sunoJingleOutput')">Copy Jingle</button></div></div>
+    <div class="outputBlock"><h2>30-Second Song</h2><pre id="sunoThirtyOutput">Click Generate Suno.</pre><div class="buttonRow"><button onclick="copyText('sunoThirtyOutput')">Copy 30-Second Song</button></div></div>
+    <div class="outputBlock"><h2>1-Minute Song</h2><pre id="sunoMinuteOutput">Click Generate Suno.</pre><div class="buttonRow"><button onclick="copyText('sunoMinuteOutput')">Copy 1-Minute Song</button></div></div>
+    <div class="outputBlock"><h2>Suggested Suno Settings</h2><pre id="sunoSettingsOutput">Click Generate Suno.</pre><div class="buttonRow"><button onclick="copyText('sunoSettingsOutput')">Copy Suno Settings</button></div></div>
+  </div>
+</section>
+
+<section class="outputs" id="marketingContentSuite">
+  <div class="outputBlock">
+    <h2>Marketing Content Suite</h2>
+    <p class="note">Built from the main generated output. Use this to sell the poster concept, digital product, prompt pack, wall art, or content idea.</p>
+
+    <div class="outputBlock">
+      <h2>Marketing Output</h2>
+      <p class="note">Quick marketing summary generated from the main prompt.</p>
+      <pre id="marketingOutput">Click Generate Prompt.</pre>
+      <div class="buttonRow"><button onclick="copyText('marketingOutput')">Copy Marketing</button></div>
+    </div>
+    <label>Custom Marketing Direction</label>
+    <textarea id="marketing_suite_custom" placeholder="Optional: add audience, offer, price, product type, launch angle, or traffic goal..."></textarea>
+    <div class="buttonRow"><button onclick="generateMarketingSuite()">Generate Marketing Suite</button></div>
+  </div>
+  <div class="extraGrid">
+    <div class="outputBlock"><h2>Captions</h2><pre id="captionsOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('captionsOutput')">Copy Captions</button></div></div>
+    <div class="outputBlock"><h2>Hashtags</h2><pre id="hashtagsOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('hashtagsOutput')">Copy Hashtags</button></div></div>
+    <div class="outputBlock"><h2>SEO Keywords</h2><pre id="seoKeywordsOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('seoKeywordsOutput')">Copy SEO Keywords</button></div></div>
+    <div class="outputBlock"><h2>Calls to Action</h2><pre id="callsToActionOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('callsToActionOutput')">Copy CTAs</button></div></div>
+    <div class="outputBlock"><h2>Email Promo Copy</h2><pre id="emailPromoOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('emailPromoOutput')">Copy Email Promo</button></div></div>
+    <div class="outputBlock"><h2>Pinterest Promo Copy</h2><pre id="pinterestPromoOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('pinterestPromoOutput')">Copy Pinterest Promo</button></div></div>
+    <div class="outputBlock"><h2>TikTok Promo Copy</h2><pre id="tiktokPromoOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('tiktokPromoOutput')">Copy TikTok Promo</button></div></div>
+    <div class="outputBlock"><h2>Facebook Promo Copy</h2><pre id="facebookPromoOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('facebookPromoOutput')">Copy Facebook Promo</button></div></div>
+    <div class="outputBlock"><h2>Instagram Promo Copy</h2><pre id="instagramPromoOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('instagramPromoOutput')">Copy Instagram Promo</button></div></div>
+    <div class="outputBlock"><h2>YouTube Promo Copy</h2><pre id="youtubePromoOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('youtubePromoOutput')">Copy YouTube Promo</button></div></div>
+    <div class="outputBlock"><h2>Ad Copy</h2><pre id="adCopyOutput">Click Generate Marketing Suite.</pre><div class="buttonRow"><button onclick="copyText('adCopyOutput')">Copy Ad Copy</button></div></div>
+  </div>
+</section>
+<section class="outputs" id="productMockupOutputsSection">
+  <div class="outputBlock">
+    <h2>Product Mockup Outputs <span style="font-size:14px;color:#fff2a8;">(Optional)</span></h2>
+    <p class="note">Turn the main spiritual concept into sellable digital product visuals: covers, listing images, sales page graphics, and lifestyle mockups.</p>
+    <div class="buttonRow">
+      <button type="button" onclick="toggleProductMockups()" id="productMockupToggleBtn">Show Product Mockup Outputs</button>
+      <button type="button" class="secondary" onclick="generateProductMockupOutputs()">Generate All Mockup Outputs</button>
+    </div>
+  </div>
+  <div id="productMockupOutputsPanel" style="display:none;">
+    <div class="card" style="margin-top:14px">
+      <h2>Mockup Direction</h2>
+      <label>Custom Product Mockup Direction</label>
+      <textarea id="product_mockup_custom" placeholder="Optional: add product type, platform, audience, format, bundle idea, or sales angle..."></textarea>
+    </div>
+    <div class="extraGrid">
+      <div class="outputBlock"><h2>Product Mockup Prompt</h2><pre id="productMockupPromptOutput">Click Generate All Mockup Outputs.</pre><div class="buttonRow"><button onclick="generateProductMockupOutputs()">Generate</button><button class="secondary" onclick="copyText('productMockupPromptOutput')">Copy Product Mockup</button></div></div>
+      <div class="outputBlock"><h2>Digital Product Cover Prompt</h2><pre id="digitalProductCoverOutput">Click Generate All Mockup Outputs.</pre><div class="buttonRow"><button onclick="generateProductMockupOutputs()">Generate</button><button class="secondary" onclick="copyText('digitalProductCoverOutput')">Copy Digital Cover</button></div></div>
+      <div class="outputBlock"><h2>Sales Page Cover Prompt</h2><pre id="salesPageCoverOutput">Click Generate All Mockup Outputs.</pre><div class="buttonRow"><button onclick="generateProductMockupOutputs()">Generate</button><button class="secondary" onclick="copyText('salesPageCoverOutput')">Copy Sales Page Cover</button></div></div>
+      <div class="outputBlock"><h2>Listing Image Prompt</h2><pre id="listingImagePromptOutput">Click Generate All Mockup Outputs.</pre><div class="buttonRow"><button onclick="generateProductMockupOutputs()">Generate</button><button class="secondary" onclick="copyText('listingImagePromptOutput')">Copy Listing Image</button></div></div>
+      <div class="outputBlock"><h2>Lifestyle Mockup Prompt</h2><pre id="lifestyleMockupPromptOutput">Click Generate All Mockup Outputs.</pre><div class="buttonRow"><button onclick="generateProductMockupOutputs()">Generate</button><button class="secondary" onclick="copyText('lifestyleMockupPromptOutput')">Copy Lifestyle Mockup</button></div></div>
+    </div>
+  </div>
+</section>
+
+
+
+</div>
+
+
+  <section class="outputs" id="customGptInstructionsSection">
+    <div class="outputBlock">
+      <h2>Custom GPT Instructions</h2>
+      <div class="buttonRow">
+        <button onclick="generateCustomGPTSection()">Generate Custom GPT Instructions</button>
+      </div>
+      <div class="extraGrid">
+        <div class="card">
+          <h2>Custom GPT Instructions</h2>
+          <pre id="customGptInstructionsOutput"></pre>
+          <div class="buttonRow"><button onclick="copyPlainText('customGptInstructionsOutput')">Copy Custom GPT Instructions</button></div>
+        </div>
+        <div class="card">
+          <h2>Starter Questions</h2>
+          <pre id="starterQuestionsOutput"></pre>
+          <div class="buttonRow"><button onclick="copyPlainText('starterQuestionsOutput')">Copy Starter Questions</button></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h2>Knowledge</h2>
+        <pre id="customGptKnowledgeOutput"></pre>
+        <div class="buttonRow"><button onclick="copyPlainText('customGptKnowledgeOutput')">Copy Knowledge</button></div>
+      </div>
+    </div>
+  </section>
+
+<section class="outputs" id="promptHistorySection">
+  <details class="promptHistoryDetails" id="promptHistoryDetails">
+    <summary>💾 Prompt History <span class="note">Click to open saved prompts</span></summary>
+    <div class="promptHistoryInner outputBlock">
+      <div class="buttonRow">
+        <button class="secondary" onclick="renderPromptHistory()">Refresh History</button>
+        <button class="danger" onclick="clearPromptHistory()">Clear History</button>
+      </div>
+      <div id="promptHistoryList" class="historyList"></div>
+    </div>
+  </details>
+</section>
+
+<div class="toast" id="toast">Copied ✨</div>
+<script>
+const categoryIds = {"Object / Main Scene": "object___main_scene", "Main Message / Theme": "main_message___theme", "Typography Style": "typography_style", "Character Type": "character_type", "Ethnicity": "ethnicity", "Body Type": "body_type", "Pose / Expression": "pose___expression", "Spiritual Symbols": "spiritual_symbols", "Background / World": "background___world", "Lighting Style": "lighting_style", "Color Palette": "color_palette", "Mood / Emotion": "mood___emotion", "Composition / Layout": "composition___layout", "Art Style / Finish": "art_style___finish"};
+const presetMap = {
+  "Armor Of God": {
+    "object___main_scene": "spiritual armor portrait",
+    "main_message___theme": "spiritual protection",
+    "typography_style": "bold gold embossed lettering",
+    "character_type": "spiritual armor woman",
+    "pose___expression": "powerful warrior stance",
+    "spiritual_symbols": "shield of faith",
+    "background___world": "spiritual warfare landscape",
+    "lighting_style": "dramatic gold rim light",
+    "color_palette": "royal blue and gold",
+    "mood___emotion": "fierce spiritual warfare",
+    "composition___layout": "low-angle heroic composition",
+    "art_style___finish": "Christian fantasy poster art"
+  },
+  "Beauty From Ashes": {
+    "object___main_scene": "emotional rebirth scene",
+    "main_message___theme": "beauty from ashes",
+    "typography_style": "elegant handwritten script",
+    "character_type": "soft glam woman",
+    "pose___expression": "walking from darkness",
+    "spiritual_symbols": "glowing butterflies",
+    "background___world": "storm opening to sunlight",
+    "lighting_style": "golden god rays",
+    "color_palette": "lavender and gold",
+    "mood___emotion": "radiant and restored",
+    "composition___layout": "split emotion-to-healing transformation",
+    "art_style___finish": "surreal healing transformation"
+  },
+  "Breaking Chains": {
+    "object___main_scene": "broken chains transformation",
+    "main_message___theme": "breaking spiritual chains",
+    "typography_style": "large dimensional headline text",
+    "character_type": "confident curvy woman",
+    "pose___expression": "breaking chains apart",
+    "spiritual_symbols": "chains breaking",
+    "background___world": "cracked earth landscape",
+    "lighting_style": "high contrast divine light",
+    "color_palette": "black and gold",
+    "mood___emotion": "bold and victorious",
+    "composition___layout": "dramatic bottom foreground props",
+    "art_style___finish": "dramatic spiritual realism"
+  },
+  "Chosen On Purpose": {
+    "object___main_scene": "walking in purpose scene",
+    "main_message___theme": "chosen with purpose",
+    "typography_style": "glowing gold calligraphy",
+    "character_type": "body-positive faith creator",
+    "pose___expression": "walking toward healing",
+    "spiritual_symbols": "glowing pathway",
+    "background___world": "heavenly sunrise valley",
+    "lighting_style": "warm cinematic sunlight",
+    "color_palette": "royal blue gold black white",
+    "mood___emotion": "worthy and chosen",
+    "composition___layout": "glowing pathway center composition",
+    "art_style___finish": "luxury affirmation artwork"
+  },
+  "Covered By Grace": {
+    "object___main_scene": "wrapped in grace scene",
+    "main_message___theme": "covered by grace",
+    "typography_style": "white serif with gold accents",
+    "character_type": "modest faith woman",
+    "pose___expression": "hands over heart",
+    "spiritual_symbols": "heavenly mist",
+    "background___world": "sanctuary of peace",
+    "lighting_style": "soft heavenly haze",
+    "color_palette": "white and gold luxury",
+    "mood___emotion": "surrendered and safe",
+    "composition___layout": "soft halo composition without crown",
+    "art_style___finish": "premium devotional fantasy"
+  },
+  "Cry It All Out": {
+    "object___main_scene": "crying surrender scene",
+    "main_message___theme": "emotional healing",
+    "typography_style": "moody handwritten typography",
+    "character_type": "rain-soaked emotional woman",
+    "pose___expression": "crying in surrender",
+    "spiritual_symbols": "miracle water reflections",
+    "background___world": "emotional rain beach",
+    "lighting_style": "cinematic rain reflections",
+    "color_palette": "emotional rain palette",
+    "mood___emotion": "raw emotional healing",
+    "composition___layout": "rainy close-up emotional layout",
+    "art_style___finish": "cinematic emotional realism"
+  },
+  "Deliverance Night": {
+    "object___main_scene": "deliverance battlefield",
+    "main_message___theme": "deliverance from fear",
+    "typography_style": "storm-lit typography",
+    "character_type": "deliverance warrior",
+    "pose___expression": "holding sword upward",
+    "spiritual_symbols": "divine sword",
+    "background___world": "purple lightning sky",
+    "lighting_style": "purple lightning flashes",
+    "color_palette": "deep purple and gold",
+    "mood___emotion": "fierce spiritual warfare",
+    "composition___layout": "cross light centered in background",
+    "art_style___finish": "stormy Christian battle art"
+  },
+  "Emotional Rebirth": {
+    "object___main_scene": "transformation shoreline",
+    "main_message___theme": "rebirth and renewal",
+    "typography_style": "stacked affirmation typography",
+    "character_type": "restoration journey woman",
+    "pose___expression": "facing the sunrise",
+    "spiritual_symbols": "butterflies",
+    "background___world": "restoration beach world",
+    "lighting_style": "sunrise breakthrough lighting",
+    "color_palette": "sunset peach and gold",
+    "mood___emotion": "powerful rebirth",
+    "composition___layout": "butterfly pathway leading to subject",
+    "art_style___finish": "healing Pinterest poster art"
+  },
+  "Faith Over Fear": {
+    "object___main_scene": "cinematic storm breakthrough",
+    "main_message___theme": "faith over fear",
+    "typography_style": "bold cinematic serif",
+    "character_type": "victorious Christian woman",
+    "pose___expression": "standing in stormlight",
+    "spiritual_symbols": "clouds opening",
+    "background___world": "storm opening to sunlight",
+    "lighting_style": "storm breaking sunlight",
+    "color_palette": "spiritual storm palette",
+    "mood___emotion": "faith-filled and hopeful",
+    "composition___layout": "storm clouds framing headline",
+    "art_style___finish": "cinematic devotional illustration"
+  },
+  "Forgiven And Free": {
+    "object___main_scene": "peace after pain scene",
+    "main_message___theme": "forgiveness and freedom",
+    "typography_style": "soft feminine script",
+    "character_type": "peaceful feminine subject",
+    "pose___expression": "arms lifted toward heaven",
+    "spiritual_symbols": "doves flying",
+    "background___world": "warm golden shoreline",
+    "lighting_style": "radiant heavenly rays",
+    "color_palette": "gold and ivory",
+    "mood___emotion": "dreamy and peaceful",
+    "composition___layout": "silhouette against heavenly light",
+    "art_style___finish": "soft feminine spiritual art"
+  },
+  "God Is Restoring Me": {
+    "object___main_scene": "restoration journey scene",
+    "main_message___theme": "God is restoring me",
+    "typography_style": "premium layered serif",
+    "character_type": "mature healing woman",
+    "pose___expression": "tears turning into light",
+    "spiritual_symbols": "roses and petals",
+    "background___world": "prayer garden world",
+    "lighting_style": "glowing mist lighting",
+    "color_palette": "rose gold and ivory",
+    "mood___emotion": "gentle restoration",
+    "composition___layout": "floating quote panels around subject",
+    "art_style___finish": "magical realism faith art"
+  },
+  "Healing In The Rain": {
+    "object___main_scene": "rain healing transformation",
+    "main_message___theme": "healing after heartbreak",
+    "typography_style": "handwritten emotional script",
+    "character_type": "crying emotional woman",
+    "pose___expression": "worshipping in rain",
+    "spiritual_symbols": "glowing aura",
+    "background___world": "rain healing environment",
+    "lighting_style": "cinematic rain reflections",
+    "color_palette": "moody grayscale and gold",
+    "mood___emotion": "healing and soft",
+    "composition___layout": "rainy close-up emotional layout",
+    "art_style___finish": "cinematic emotional realism"
+  },
+  "Heaven Hears Me": {
+    "object___main_scene": "open heaven scene",
+    "main_message___theme": "trusting God again",
+    "typography_style": "heavenly scripture typography",
+    "character_type": "prayerful silhouette",
+    "pose___expression": "looking upward in faith",
+    "spiritual_symbols": "clouds opening",
+    "background___world": "angelic cloud kingdom",
+    "lighting_style": "heavenly cloud glow",
+    "color_palette": "glowing heavenly palette",
+    "mood___emotion": "prayerful and intimate",
+    "composition___layout": "headline across sky composition",
+    "art_style___finish": "radiant heavenly fantasy art"
+  },
+  "Identity Restored": {
+    "object___main_scene": "feminine restoration moment",
+    "main_message___theme": "identity in Christ",
+    "typography_style": "luxury editorial lettering",
+    "character_type": "African American glam woman",
+    "pose___expression": "standing with confidence",
+    "spiritual_symbols": "gold dust halo without crown",
+    "background___world": "luxury celestial background",
+    "lighting_style": "luxury editorial lighting",
+    "color_palette": "premium gold contrast palette",
+    "mood___emotion": "confident and covered",
+    "composition___layout": "luxury magazine cover layout",
+    "art_style___finish": "editorial luxury fantasy"
+  },
+  "Joy After Darkness": {
+    "object___main_scene": "miracle sunrise moment",
+    "main_message___theme": "joy after pain",
+    "typography_style": "glossy bubble lettering",
+    "character_type": "glowing child of faith",
+    "pose___expression": "lifting hands in victory",
+    "spiritual_symbols": "sunrise rays",
+    "background___world": "heavenly sunrise valley",
+    "lighting_style": "miracle glow burst",
+    "color_palette": "sunrise orange and gold",
+    "mood___emotion": "joyful breakthrough",
+    "composition___layout": "subject walking into center light",
+    "art_style___finish": "glossy digital painting"
+  },
+  "Letting Go Of Pain": {
+    "object___main_scene": "surrender to God scene",
+    "main_message___theme": "letting go of trauma",
+    "typography_style": "warm cinematic script",
+    "character_type": "emotional restoration woman",
+    "pose___expression": "hands open in surrender",
+    "spiritual_symbols": "transformation smoke",
+    "background___world": "moody healing shoreline",
+    "lighting_style": "emotional cinematic light",
+    "color_palette": "soft lavender tones",
+    "mood___emotion": "peaceful surrender",
+    "composition___layout": "diagonal light beam composition",
+    "art_style___finish": "surreal healing transformation"
+  },
+  "Peace In The Storm": {
+    "object___main_scene": "ocean healing atmosphere",
+    "main_message___theme": "peace in the storm",
+    "typography_style": "clean modern luxury serif",
+    "character_type": "ocean surrender woman",
+    "pose___expression": "resting in peace posture",
+    "spiritual_symbols": "ocean waves",
+    "background___world": "miracle ocean horizon",
+    "lighting_style": "ocean reflection glow",
+    "color_palette": "ocean blue and pearl",
+    "mood___emotion": "calm after chaos",
+    "composition___layout": "ocean horizon centered composition",
+    "art_style___finish": "premium poster realism"
+  },
+  "Prayer Changes Things": {
+    "object___main_scene": "prayer breakthrough visual",
+    "main_message___theme": "spiritual breakthrough",
+    "typography_style": "radiant divine typography",
+    "character_type": "breakthrough prayer woman",
+    "pose___expression": "kneeling in prayer",
+    "spiritual_symbols": "prayer hands",
+    "background___world": "fantasy prayer world",
+    "lighting_style": "heavenly spotlight",
+    "color_palette": "champagne gold and cream",
+    "mood___emotion": "prayerful and intimate",
+    "composition___layout": "prayer altar foreground layout",
+    "art_style___finish": "faith-based concept art"
+  },
+  "Protected By God": {
+    "object___main_scene": "glowing cross landscape",
+    "main_message___theme": "protected by God",
+    "typography_style": "ornate scripture styling",
+    "character_type": "glam prayer warrior",
+    "pose___expression": "standing beside cross",
+    "spiritual_symbols": "glowing cross",
+    "background___world": "dark storm valley",
+    "lighting_style": "white divine illumination",
+    "color_palette": "black and gold",
+    "mood___emotion": "divinely protected",
+    "composition___layout": "cross light centered in background",
+    "art_style___finish": "Christian fantasy poster art"
+  },
+  "Rebuilt By Grace": {
+    "object___main_scene": "luxury devotion scene",
+    "main_message___theme": "redemption story",
+    "typography_style": "metallic gold serif",
+    "character_type": "luxury devotion woman",
+    "pose___expression": "peaceful smile through tears",
+    "spiritual_symbols": "open prayer journal",
+    "background___world": "luxury prayer room",
+    "lighting_style": "ambient candle glow",
+    "color_palette": "champagne gold and cream",
+    "mood___emotion": "redeemed and renewed",
+    "composition___layout": "Bible and candles foreground with subject behind",
+    "art_style___finish": "luxury digital product cover style"
+  },
+  "Restoration Season": {
+    "object___main_scene": "sanctuary garden",
+    "main_message___theme": "restoration season",
+    "typography_style": "Pinterest viral quote style",
+    "character_type": "feminine spiritual leader",
+    "pose___expression": "surrounded by butterflies",
+    "spiritual_symbols": "lavender flowers",
+    "background___world": "glowing lavender sanctuary",
+    "lighting_style": "lavender dream glow",
+    "color_palette": "lavender and cream",
+    "mood___emotion": "radiant and restored",
+    "composition___layout": "main subject framed by clouds",
+    "art_style___finish": "viral Pinterest affirmation style"
+  },
+  "Rising Again": {
+    "object___main_scene": "warm sunset breakthrough",
+    "main_message___theme": "rising again stronger",
+    "typography_style": "ultra-bold title typography",
+    "character_type": "strong emotional heroine",
+    "pose___expression": "triumphant victory stance",
+    "spiritual_symbols": "victory sparks",
+    "background___world": "victory battlefield",
+    "lighting_style": "glowing sunset lighting",
+    "color_palette": "glowing sunset colors",
+    "mood___emotion": "triumphant and glowing",
+    "composition___layout": "low-angle heroic composition",
+    "art_style___finish": "fantasy movie poster finish"
+  },
+  "Victory Through Faith": {
+    "object___main_scene": "victorious breakthrough scene",
+    "main_message___theme": "victory over darkness",
+    "typography_style": "glowing layered typography",
+    "character_type": "faith warrior stance",
+    "pose___expression": "lifting hands in victory",
+    "spiritual_symbols": "victory sparks",
+    "background___world": "deliverance battlefield",
+    "lighting_style": "high detail fantasy lighting",
+    "color_palette": "crimson and gold",
+    "mood___emotion": "victorious through faith",
+    "composition___layout": "wide cinematic banner layout",
+    "art_style___finish": "high-detail fantasy realism"
+  },
+  "Walking Into Purpose": {
+    "object___main_scene": "inspirational mountain path",
+    "main_message___theme": "walking into purpose",
+    "typography_style": "modern glam typography",
+    "character_type": "walking into purpose woman",
+    "pose___expression": "walking barefoot in light",
+    "spiritual_symbols": "glowing pathway",
+    "background___world": "mountain breakthrough path",
+    "lighting_style": "warm cinematic sunlight",
+    "color_palette": "teal and champagne",
+    "mood___emotion": "uplifted and inspired",
+    "composition___layout": "rule-of-thirds cinematic layout",
+    "art_style___finish": "inspirational social media poster"
+  },
+  "Worthy And Chosen": {
+    "object___main_scene": "heavenly cloud sanctuary",
+    "main_message___theme": "worthy and chosen",
+    "typography_style": "elegant brush script",
+    "character_type": "semi-realistic feminine beauty",
+    "pose___expression": "surrounded by heavenly light",
+    "spiritual_symbols": "glowing butterflies",
+    "background___world": "radiant heavenly atmosphere",
+    "lighting_style": "soft feminine lighting",
+    "color_palette": "pink and gold",
+    "mood___emotion": "worthy and chosen",
+    "composition___layout": "centered subject with headline above",
+    "art_style___finish": "luxury affirmation artwork"
+  }
+};
+const customFieldIds = Object.values(categoryIds).map(id => id + "_custom");
+const lockedFields = new Set();
+const logicFieldIds = [];
+const allFieldIds = Object.values(categoryIds).concat(customFieldIds, ["main_headline","supporting_affirmation","scripture_footer","animated_video_custom","marketing_suite_custom","suno_genre_custom","suno_style_custom","suno_audio_custom","suno_vocal_custom","product_mockup_custom","suno_weirdness","suno_style_influence","suno_audio_influence"], logicFieldIds);
+
+function clean(v){ return (v || "").trim(); }
+function get(id){ const el = document.getElementById(id); return clean(el ? el.value : ""); }
+function getCategory(id){
+  const custom = clean(document.getElementById(id + "_custom")?.value || "");
+  return custom || get(id);
+}
+function isLocked(id){ return lockedFields.has(id); }
+function toggleLock(id){
+  const btn = document.getElementById(id + "_lock");
+  if(!btn) return;
+  if(lockedFields.has(id)){
+    lockedFields.delete(id);
+    btn.textContent = "Lock";
+    btn.classList.remove("locked");
+  } else {
+    lockedFields.add(id);
+    btn.textContent = "Locked";
+    btn.classList.add("locked");
+  }
+}
+function isReal(v){ return v && v !== "None"; }
+
+function line(label, value){
+  return isReal(value) ? `${label}: ${value}` : "";
+}
+
+function section(title, rows){
+  const keep = rows.filter(Boolean);
+  if(!keep.length) return "";
+  return `[${title}]\n` + keep.join("\n") + "\n";
+}
+
+function isColoringPageMode(){
+  return !!document.getElementById("coloring_page_toggle")?.checked;
+}
+
+function handleColoringPageToggle(){
+  const on = isColoringPageMode();
+  const status = document.getElementById("coloring_page_status");
+  if(status){
+    status.textContent = on
+      ? "ON — Generate Prompt will create a printable black-and-white coloring page prompt."
+      : "OFF — current prompt will generate a full-color spiritual poster.";
+  }
+  generatePrompt();
+  showToast(on ? "Coloring Page Mode ON" : "Coloring Page Mode OFF");
+}
+
+function generatePrompt(){
+  const coloringOn = isColoringPageMode();
+  const finishLine = coloringOn
+    ? "Printable spiritual coloring book page, clean black-and-white line art, bold crisp outlines, strong readable typography, open coloring spaces, no grayscale shading, no full-color rendering, high-contrast ink illustration, premium printable worksheet/poster style."
+    : "Ultra-detailed cinematic spiritual breakthrough poster, glossy semi-realistic digital painting, luxury faith-based testimony artwork, emotional healing storytelling, bold motivational energy, boundary-breaking freedom atmosphere, premium editorial fantasy realism, glowing particles, rich shadows, luminous highlights, polished AI art aesthetic.";
+  const designLine = coloringOn
+    ? "Coloring Page Mode is ON: convert the full concept into clean printable black-and-white line art. Do not use color gradients, painterly lighting, or full-color poster styling."
+    : "Use the selected color palette, selected style, and custom user choices only. Do not force any brand colors or signature elements unless the user selects or types them.";
+
+  const main = section("OBJECT / MAIN SCENE", [
+    line("Main scene", getCategory(categoryIds["Object / Main Scene"])),
+    line("Main message / theme", getCategory(categoryIds["Main Message / Theme"]))
+  ]) +
+  section("TEXT / TYPOGRAPHY", [
+    get("main_headline") ? `Main headline: "${get("main_headline")}"` : "",
+    get("supporting_affirmation") ? `Supporting affirmation: "${get("supporting_affirmation")}"` : "",
+    get("scripture_footer") ? `Scripture / footer / signature: "${get("scripture_footer")}"` : "",
+    line("Typography style", getCategory(categoryIds["Typography Style"])),
+    "Text must be bold, clean, readable, dimensional, correctly spelled, and naturally integrated into the scene."
+  ]) +
+  section("CHARACTER / SUBJECT", [
+    line("Character type", getCategory(categoryIds["Character Type"])),
+    line("Ethnicity", getCategory(categoryIds["Ethnicity"])),
+    line("Body type", getCategory(categoryIds["Body Type"])),
+    line("Pose / expression", getCategory(categoryIds["Pose / Expression"]))
+  ]) +
+  section("SPIRITUAL SYMBOLS", [
+    line("Symbolic elements", getCategory(categoryIds["Spiritual Symbols"]))
+  ]) +
+  section("BACKGROUND / WORLD", [
+    line("Background world", getCategory(categoryIds["Background / World"]))
+  ]) +
+  section("LIGHTING / COLOR PALETTE", [
+    line("Lighting style", getCategory(categoryIds["Lighting Style"])),
+    line("Color palette", getCategory(categoryIds["Color Palette"]))
+  ]) +
+  section("MOOD / EMOTION", [
+    line("Mood", getCategory(categoryIds["Mood / Emotion"]))
+  ]) +
+  section("COMPOSITION / LAYOUT", [
+    line("Composition", getCategory(categoryIds["Composition / Layout"]))
+  ]) +
+  section("ART STYLE / FINISH", [
+    line("Art style / finish", coloringOn ? "printable spiritual coloring page line art" : getCategory(categoryIds["Art Style / Finish"])),
+    finishLine
+  ]) +
+  section("PRODUCT MOCKUP OPTION", [
+    line("Mockup option", get("mockup_option"))
+  ]) +
+  (coloringOn ? section("COLORING PAGE MODE", [
+    "Coloring Page Mode: ON",
+    get("coloring_page_custom") ? `Custom coloring page notes: ${get("coloring_page_custom")}` : "Printable black-and-white coloring page version of the same spiritual affirmation concept.",
+    "Use clean bold line art, crisp outlines, high-contrast printable details, open coloring spaces, decorative spiritual elements, readable typography, and no muddy grayscale shading.",
+    "Keep the same theme, subject, emotion, symbols, and composition, but convert the finish into a polished printable coloring book page.",
+    "Aspect ratio: 8.5 x 11 printable page or 9:16 printable poster, centered design, safe margins, clean white background."
+  ]) : "") +
+  section("VIDEO MOTION OPTION", [
+    line("Video motion", get("video_option"))
+  ]) +
+  section("DESIGN STYLE", [
+    designLine,
+    coloringOn ? "Keep the design premium, spiritual, emotional, printable, and easy to color." : "Keep the design premium, polished, spiritual, cinematic, emotional, inspirational, motivational, and scroll-stopping."
+  ]) +
+  section("NEGATIVE PROMPT", [
+    "No crowns, no tiaras, no royal headpieces, no crown symbols, no app icons, no share icons, no upload icons, no download icons, no browser UI, no phone UI overlay, no corner buttons, no interface symbols, no watermark-style corner marks, no blurry text, no misspelled words, no distorted hands, no extra limbs, no broken anatomy, no cheap flat Canva-looking layout, no dull colors, no muddy lighting, no generic AI look, no cluttered unreadable typography, no watermark, no random logo, no duplicated face, no messy composition.",
+    coloringOn ? "When Coloring Page Mode is ON: no full color, no heavy filled backgrounds, no muddy shadows, no complex tiny details, no painterly rendering, no gradients, no photorealism, no 3D glossy finish." : ""
+  ]);
+
+  document.getElementById("mainOutput").textContent = main.trim();
+  const theme = getCategory(categoryIds["Main Message / Theme"]) || "spiritual healing";
+  const headline = get("main_headline") || theme;
+  const productType = coloringOn ? "printable spiritual coloring page" : "luxury spiritual affirmation poster";
+  document.getElementById("marketingOutput").textContent =
+`Product Angle: A ${productType} for people needing ${theme}.\n\nHook: This is for the woman who survived what should have broken her, cried real tears, and still walked out with God, fire, and freedom.\n\nCaption: Create a scroll-stopping faith-based visual called "${headline}". Use it as wall art, a journal cover, a digital download, a Pinterest pin, or a content post.\n\nCTA: Comment GLOW if you want more faith-filled prompt ideas.`;
+
+
+  document.getElementById("sunoOutput").textContent =
+`Song Title: ${headline}\nStyle: ${get("suno_option") || "cinematic gospel worship anthem"}\nMood: ${getCategory(categoryIds["Mood / Emotion"]) || "healing, victorious, emotional"}\nSong Description: A faith-filled inspirational song about ${theme}, rising again, trusting God, and walking into healing.`;
+  savePromptToHistory();
+}
+
+
+function optionExists(id, value){
+  const el = document.getElementById(id);
+  return !!el && [...el.options].some(o => o.value === value);
+}
+
+function setSmartValue(id, value){
+  if(isLocked(id)) return;
+  const el = document.getElementById(id);
+  if(!el) return;
+  const customEl = document.getElementById(id + "_custom");
+  if(customEl) customEl.value = "";
+  if(optionExists(id, value)) el.value = value;
+}
+
+function randomPick(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+const smartThemeSets = [
+  {theme:"breaking spiritual chains", headline:"I Am Not Bound Anymore", affirmation:"The chains broke, the door opened, and I walked out free."},
+  {theme:"victory over darkness", headline:"The Enemy Lost Again", affirmation:"What came for my peace had to bow to my God."},
+  {theme:"God is restoring me", headline:"God Is Rebuilding Me In Public", affirmation:"Nothing missing. Nothing wasted. Nothing too broken for His hands."},
+  {theme:"rising again stronger", headline:"I Rose With Holy Fire", affirmation:"What knocked me down did not get permission to keep me there."},
+  {theme:"faith over fear", headline:"My Faith Got Louder", affirmation:"Fear spoke first, but faith got the final word."},
+  {theme:"purpose after rejection", headline:"Rejected But Redirected", affirmation:"What closed behind me pushed me into purpose."},
+  {theme:"beauty from ashes", headline:"The Ashes Could Not Hide Me", affirmation:"God made the broken place bloom anyway."},
+  {theme:"healing after heartbreak", headline:"My Heart Still Beats With Hope", affirmation:"The wound was real, but so is the healing."},
+  {theme:"deliverance from fear", headline:"Fear Does Not Own Me", affirmation:"I am free in places fear used to control."},
+  {theme:"walking into purpose", headline:"I’m Walking Out Different", affirmation:"I do not need permission to become who God called me to be."},
+  {theme:"identity in Christ", headline:"I Remember Who I Am", affirmation:"The pain lied, but God called me by name."},
+  {theme:"strength through faith", headline:"Still Standing By Grace", affirmation:"I bent, I cried, I prayed, and I still stood back up."},
+  {theme:"your story is not over", headline:"This Is Not The End", affirmation:"God is writing chapters pain could never cancel."},
+  {theme:"spiritual breakthrough", headline:"Breakthrough Found Me", affirmation:"Heaven moved before I even saw the door open."},
+  {theme:"freedom from shame", headline:"Shame Lost Its Grip", affirmation:"I am not carrying what God already released."},
+  {theme:"wrapped in divine peace", headline:"Peace Is My Portion", affirmation:"The storm got loud, but my spirit got steady."},
+  {theme:"joy after pain", headline:"Joy Came Back For Me", affirmation:"Morning found me, and joy walked in with it."},
+  {theme:"protected by God", headline:"Covered In Places I Can’t See", affirmation:"God guarded me when I did not even know danger was close."},
+  {theme:"rebuilding confidence", headline:"No More Shrinking", affirmation:"I was not created to live small, quiet, or hidden."},
+  {theme:"redemption story", headline:"Grace Rewrote The Ending", affirmation:"My past spoke loudly, but grace spoke louder."}
+];
+
+const smartSceneSets = [
+  {scene:"broken chains transformation", symbols:"chains breaking", background:"cracked earth landscape", lighting:"high contrast divine light", composition:"dramatic bottom foreground props", finish:"dramatic spiritual realism"},
+  {scene:"cinematic storm breakthrough", symbols:"clouds opening", background:"storm opening to sunlight", lighting:"storm breaking sunlight", composition:"storm clouds framing headline", finish:"cinematic devotional illustration"},
+  {scene:"deliverance battlefield", symbols:"divine sword", background:"spiritual warfare landscape", lighting:"dramatic gold rim light", composition:"low-angle heroic composition", finish:"Christian fantasy poster art"},
+  {scene:"open heaven scene", symbols:"holy light beams", background:"angelic cloud kingdom", lighting:"heavenly cloud glow", composition:"headline across sky composition", finish:"radiant heavenly fantasy art"},
+  {scene:"rain healing transformation", symbols:"miracle water reflections", background:"rain healing environment", lighting:"cinematic rain reflections", composition:"rainy close-up emotional layout", finish:"cinematic emotional realism"},
+  {scene:"miracle sunrise moment", symbols:"sunrise rays", background:"heavenly sunrise valley", lighting:"sunrise breakthrough lighting", composition:"subject walking into center light", finish:"healing Pinterest poster art"},
+  {scene:"surrender to God scene", symbols:"transformation smoke", background:"moody healing shoreline", lighting:"emotional cinematic light", composition:"diagonal light beam composition", finish:"surreal healing transformation"},
+  {scene:"spiritual armor portrait", symbols:"shield of faith", background:"dark storm valley", lighting:"white divine illumination", composition:"cross light centered in background", finish:"stormy Christian battle art"},
+  {scene:"walking in purpose scene", symbols:"glowing pathway", background:"mountain breakthrough path", lighting:"warm cinematic sunlight", composition:"glowing pathway center composition", finish:"inspirational social media poster"},
+  {scene:"zero-character symbolic scene", symbols:"glowing Bible", background:"glowing Bible landscape", lighting:"golden god rays", composition:"open Bible foreground composition", finish:"premium devotional fantasy"}
+];
+
+const femaleCharacters = ["African American glam woman","plus-size healing woman","confident curvy woman","glam prayer warrior","spiritual armor woman","breakthrough prayer woman","mature healing woman","strong emotional heroine","walking into purpose woman","victorious Christian woman"];
+const maleCharacters = ["zero-character symbolic scene","glowing Bible-centered scene","prayerful silhouette","deliverance warrior","sanctuary worshipper"];
+const neutralCharacters = ["prayerful silhouette","elegant feminine silhouette","peaceful feminine subject","glowing Bible-centered scene","zero-character symbolic scene"];
+const characterPoses = ["breaking chains apart","arms lifted toward heaven","hands open in surrender","lifting hands in victory","looking upward in faith","reaching toward light","standing in stormlight","turning away from darkness","walking from darkness","triumphant victory stance"];
+const symbolicPoses = ["None","looking upward in faith","reaching toward light","standing beside cross"];
+const colorPalettes = ["royal blue gold black white","royal blue and gold","black and gold","deep purple and gold","white and gold luxury","crimson and gold","glowing heavenly palette","premium gold contrast palette","midnight blue and gold","radiant white and gold"];
+const moods = ["bold and victorious","emotional but powerful","fierce spiritual warfare","raw emotional healing","powerful rebirth","triumphant and glowing","victorious through faith","strength after struggle","spiritual authority","storm-to-sunrise energy"];
+const typographyStyles = ["large dimensional headline text","bold gold embossed lettering","ultra-bold title typography","storm-lit typography","glowing layered typography","radiant divine typography","high contrast serif typography","dramatic Pinterest quote typography","premium layered serif","luxury editorial lettering"];
+const ethnicityPool = ["African American / Black","Afro-Caribbean","Afro-Latina","Caribbean Black","faith-filled Black woman","faith-filled Latina woman","faith-filled African woman","faith-filled Caribbean woman","melanin-rich glow","deep brown skin tone","rich mahogany skin tone","warm caramel skin tone","golden brown skin tone","cocoa brown skin tone","mixed heritage beauty","diaspora faith woman","God-covered woman of color","radiant dark skin beauty","luxury editorial multicultural beauty","beautiful believer with natural glow"];
+const bodyTypePool = ["confident plus-size body","plus-size baddie build","plus-size beauty","plus-size divine feminine","plus-size glam figure","plus-size healing body","curvy and confident","curvy hourglass","full-figured beauty","full-figured prayer warrior","body-positive silhouette","bold curvy shape","soft curvy body","strong curvy body","thick and confident","voluptuous body","real woman body","natural realistic figure","elegant body-positive figure","premium editorial full-figure silhouette"];
+
+
+function includesAny(text, words){
+  const t = String(text || '').toLowerCase();
+  return words.some(w => t.includes(String(w).toLowerCase()));
+}
+function currentCategoryValue(label){
+  return getCategory(categoryIds[label] || '');
+}
+function checkPromptQuality(){
+  const prompt = document.getElementById('mainOutput')?.textContent || '';
+  const out = document.getElementById('qualityOutput');
+  if(!out) return;
+
+  const characterIncluded = get('character_included_toggle') || 'Yes';
+  const subject = currentCategoryValue('Character Type');
+  const style = currentCategoryValue('Art Style / Finish');
+  const lighting = currentCategoryValue('Lighting Style');
+  const background = currentCategoryValue('Background / World');
+  const color = currentCategoryValue('Color Palette');
+  const mood = currentCategoryValue('Mood / Emotion');
+  const composition = currentCategoryValue('Composition / Layout');
+  const negative = includesAny(prompt, ['[NEGATIVE PROMPT]', 'no crowns', 'no blurry text', 'no distorted hands']);
+
+  const issues = [];
+  const fixes = [];
+  const p = prompt.toLowerCase();
+
+  if(characterIncluded !== 'No' && !isReal(subject)){
+    issues.push('Missing subject');
+    fixes.push('Choose a clear Character Type or type a custom subject, like “curvy woman breaking chains in divine light.”');
+  }
+  if(!isReal(style)){
+    issues.push('Missing style');
+    fixes.push('Add a strong Art Style / Finish such as cinematic spiritual realism, premium devotional fantasy, or bold breakthrough poster art.');
+  }
+  if(!isReal(lighting)){
+    issues.push('Missing lighting');
+    fixes.push('Pick Lighting Style with emotional power, like high contrast divine light, golden god rays, or storm breaking sunlight.');
+  }
+  if(!isReal(background)){
+    issues.push('Missing background');
+    fixes.push('Choose a Background / World so the prompt has a real scene, not floating text in nowhere-land.');
+  }
+  if(!isReal(color)){
+    issues.push('Missing color palette');
+    fixes.push('Choose a Color Palette so the prompt has a clear visual direction.');
+  }
+  if(!isReal(mood)){
+    issues.push('Missing mood');
+    fixes.push('Add Mood / Emotion so the output knows whether to feel victorious, tearful, peaceful, fierce, or restored.');
+  }
+  if(!isReal(composition)){
+    issues.push('Missing camera/composition');
+    fixes.push('Pick a Composition / Layout such as cinematic close-up, low-angle heroic, vertical 9:16 poster, or headline across sky.');
+  }
+  if(!includesAny(p, ['9:16','vertical','youtube thumbnail','square','portrait','landscape','banner','poster'])){
+    issues.push('Missing aspect ratio');
+    fixes.push('Add an aspect ratio or format note, like “vertical 9:16 Pinterest poster” or “YouTube thumbnail.”');
+  }
+  if(characterIncluded !== 'No' && !includesAny(p, ['full body','waist-up','centered subject','safe crop','head-to-toe','portrait composition','silhouette against heavenly light','rule-of-thirds'])){
+    issues.push('Character crop risk');
+    fixes.push('Add crop safety wording: “centered full-body subject, face and hands visible, no cut-off head, no cropped feet.”');
+  }
+  const weakWords = ['nice','pretty','good','cool','beautiful image','inspirational image'];
+  const strongWords = ['breakthrough','deliverance','restoration','victory','healing','freedom','testimony','divine','spiritual','chains','faith','purpose','glory'];
+  if(includesAny(p, weakWords) || !includesAny(p, strongWords)){
+    issues.push('Weak or vague wording');
+    fixes.push('Use stronger emotional language: “tears becoming testimony,” “chains shattering,” “God pulled me out,” or “walking out of bondage into light.”');
+  }
+  if(!negative){
+    issues.push('Negative prompt missing');
+    fixes.push('Keep the Negative Prompt section so the image avoids crowns, bad text, distorted hands, UI icons, and messy layouts.');
+  }
+
+  let score = 'Excellent';
+  if(issues.length >= 4) score = 'Needs Work';
+  else if(issues.length >= 1) score = 'Good';
+
+  const passed = [
+    isReal(subject) || characterIncluded === 'No' ? 'Subject is handled' : '',
+    isReal(style) ? 'Style is included' : '',
+    isReal(lighting) ? 'Lighting is included' : '',
+    isReal(background) ? 'Background is included' : '',
+    isReal(color) ? 'Color palette is included' : '',
+    isReal(mood) ? 'Mood is included' : '',
+    isReal(composition) ? 'Composition is included' : '',
+    negative ? 'Negative prompt is included' : ''
+  ].filter(Boolean);
+
+  const issueText = issues.length ? issues.map(x => `- ${x}`).join('\n') : '- No major issues found.';
+  const fixText = fixes.length ? fixes.map(x => `- ${x}`).join('\n') : '- This prompt is strong. For extra drama, add one tear-jerker phrase or a more specific camera angle.';
+  const passText = passed.length ? passed.map(x => `- ${x}`).join('\n') : '- Nothing confirmed yet.';
+
+  out.textContent = `QUALITY SCORE: ${score}\n\nPASSED CHECKS:\n${passText}\n\nNEEDS ATTENTION:\n${issueText}\n\nQUICK FIX SUGGESTIONS:\n${fixText}`;
+}
+
+function randomizeAll(){
+  const characterIncluded = get("character_included_toggle") || "Yes";
+  const theme = randomPick(smartThemeSets);
+  let scene = randomPick(smartSceneSets);
+
+  if(characterIncluded === "No" || characterIncluded === "Symbolic Only"){
+    scene = randomPick(smartSceneSets.filter(s => s.scene === "zero-character symbolic scene" || s.scene.includes("open heaven") || s.scene.includes("miracle")));
+  }
+
+  setSmartValue(categoryIds["Main Message / Theme"], theme.theme);
+  setSmartValue(categoryIds["Object / Main Scene"], scene.scene);
+  setSmartValue(categoryIds["Spiritual Symbols"], scene.symbols);
+  setSmartValue(categoryIds["Background / World"], scene.background);
+  setSmartValue(categoryIds["Lighting Style"], scene.lighting);
+  setSmartValue(categoryIds["Composition / Layout"], scene.composition);
+  setSmartValue(categoryIds["Art Style / Finish"], scene.finish);
+  setSmartValue(categoryIds["Typography Style"], randomPick(typographyStyles));
+  setSmartValue(categoryIds["Color Palette"], randomPick(colorPalettes));
+  setSmartValue(categoryIds["Mood / Emotion"], randomPick(moods));
+
+  let characterPool = femaleCharacters.concat(neutralCharacters);
+  if(characterIncluded === "No" || characterIncluded === "Symbolic Only") characterPool = ["zero-character symbolic scene","glowing Bible-centered scene"];
+
+  setSmartValue(categoryIds["Character Type"], randomPick(characterPool));
+  if(characterIncluded === "No" || characterIncluded === "Symbolic Only") {
+    setSmartValue(categoryIds["Ethnicity"], "None");
+    setSmartValue(categoryIds["Body Type"], "None");
+  } else {
+    setSmartValue(categoryIds["Ethnicity"], randomPick(ethnicityPool));
+    setSmartValue(categoryIds["Body Type"], randomPick(bodyTypePool));
+  }
+  setSmartValue(categoryIds["Pose / Expression"], (characterIncluded === "No" || characterIncluded === "Symbolic Only") ? randomPick(symbolicPoses) : randomPick(characterPoses));
+
+  if(!document.getElementById("main_headline").dataset.locked){
+    document.getElementById("main_headline").value = theme.headline;
+  }
+  if(!document.getElementById("supporting_affirmation").dataset.locked){
+    document.getElementById("supporting_affirmation").value = theme.affirmation;
+  }
+
+  const mockups = ["digital product cover mockup","framed wall art mockup","journal cover mockup","poster bundle mockup","t-shirt and tote bag mockup"];
+  const videos = ["chains break in slow motion","camera pushes through storm clouds into gold light","rain transforms into golden particles","glowing scripture pages float forward","butterflies swirl around the headline"];
+  const suno = ["cinematic gospel worship anthem","emotional healing ballad","faith-based spoken word over piano","gospel trap inspirational song","victory praise song with choir"];
+  const mockupEl = document.getElementById("mockup_option");
+  const videoEl = document.getElementById("video_option");
+  const sunoEl = document.getElementById("suno_option");
+  if(mockupEl) mockupEl.value = randomPick(mockups);
+  if(videoEl) videoEl.value = randomPick(videos);
+  if(sunoEl) sunoEl.value = randomPick(suno);
+
+  generatePrompt();
+  showToast("Smart Random built a full setup ✨");
+}
+
+function loadPreset(){
+  const name = get("presetSelect");
+  if(!isReal(name) || !presetMap[name]) return showToast("Pick a preset first");
+  const preset = presetMap[name];
+  Object.entries(preset).forEach(([id, value]) => {
+    if(isLocked(id)) return;
+    const el = document.getElementById(id);
+    if(el) el.value = value;
+  });
+  document.getElementById("main_headline").value = name;
+  document.getElementById("supporting_affirmation").value = presetAffirmation(name);
+  generatePrompt();
+  showToast("Preset loaded ✨");
+}
+
+function presetAffirmation(name){
+  const map = {
+    "Armor Of God":"I am covered, equipped, and not fighting alone.",
+    "Beauty From Ashes":"What tried to destroy me became the soil for my bloom.",
+    "Breaking Chains":"What held me back has no power over me now.",
+    "Chosen On Purpose":"Before I doubted, God already called me worthy.",
+    "Covered By Grace":"Grace found me, held me, and carried me through.",
+    "Cry It All Out":"My tears are not weakness. They are release.",
+    "Deliverance Night":"Darkness does not get the final word.",
+    "Emotional Rebirth":"I am not who pain tried to make me.",
+    "Faith Over Fear":"Fear can speak, but faith gets the last word.",
+    "Forgiven And Free":"I am released, restored, and free to breathe again.",
+    "God Is Restoring Me":"The pain left, but the wisdom stayed.",
+    "Healing In The Rain":"Even here, God is washing me clean.",
+    "Heaven Hears Me":"My prayers are not lost in the sky.",
+    "Identity Restored":"I remember who I am and Whose I am.",
+    "Joy After Darkness":"Morning found me, and joy came with it.",
+    "Letting Go Of Pain":"I release what was never meant to carry me.",
+    "Peace In The Storm":"The storm is loud, but my peace is louder.",
+    "Prayer Changes Things":"I prayed, and heaven started moving.",
+    "Protected By God":"I am covered in places I cannot even see.",
+    "Rebuilt By Grace":"Grace rebuilt what grief tried to ruin.",
+    "Restoration Season":"Nothing missing. Nothing wasted. Nothing too broken.",
+    "Rising Again":"I fell, I learned, I rose.",
+    "Victory Through Faith":"The battle was real, but so is my victory.",
+    "Walking Into Purpose":"I am moving different because I know who sent me.",
+    "Worthy And Chosen":"I was worthy before I knew how to believe it."
+  };
+  return map[name] || "";
+}
+
+
+function generateAnimatedVideoScript(){
+  const mainPrompt = normalizePlainText(document.getElementById("mainOutput")?.textContent || "");
+  const customDirection = get("animated_video_custom","marketing_suite_custom");
+  const headline = get("main_headline") || getCategory(categoryIds["Main Message / Theme"]) || "spiritual breakthrough";
+  const subject = getCategory(categoryIds["Character Type"]) || "the main spiritual subject";
+  const scene = getCategory(categoryIds["Object / Main Scene"]) || "a bold spiritual breakthrough scene";
+  const mood = getCategory(categoryIds["Mood / Emotion"]) || "emotional, victorious, and tear-moving";
+  const lighting = getCategory(categoryIds["Lighting Style"]) || "divine golden light breaking through darkness";
+  const background = getCategory(categoryIds["Background / World"]) || "a cinematic spiritual atmosphere";
+  const symbols = getCategory(categoryIds["Spiritual Symbols"]) || "glowing butterflies, light, and breakthrough energy";
+  const motion = get("video_option") || "slow cinematic push-in with particles moving toward the light";
+
+  if(!mainPrompt || mainPrompt === "Click Generate Prompt."){
+    return showToast("Generate the main prompt first");
+  }
+
+  const customLine = customDirection ? `\nCUSTOM DIRECTION: ${customDirection}` : "";
+  const script = `[8-SECOND ANIMATED VIDEO SCRIPT]\nSource: built from the current main generated prompt.\n\n0:00–0:02 — OPENING EMOTION\nStart in ${background}. Show ${scene}. The mood feels ${mood}. Use ${lighting}. The camera slowly moves in as the atmosphere trembles with spiritual tension.\n\n0:02–0:04 — BREAKTHROUGH ACTION\nReveal ${subject}. Keep the character identity and visual traits consistent with the main prompt when a character is included. Animate ${symbols} moving through the scene. Add subtle tears, wind, glowing particles, or fabric movement to make the emotion feel alive.\n\n0:04–0:06 — FREEDOM MOMENT\nThe visual energy shifts from pain to power. Use ${motion}. Let the light expand, chains break, clouds open, or the symbolic elements rise with purpose. Keep everything bold, spiritual, inspirational, and cinematic.\n\n0:06–0:08 — FINAL IMPACT\nEnd on the message: \"${headline}\". Make the text clean, readable, glowing, and emotionally powerful. Finish with a premium spiritual poster-style frame using the selected palette and selected visual details only.${customLine}\n\nVISUAL PROTECTION\nNo crowns, no tiaras, no app icons, no share icons, no browser UI, no phone overlay, no corner buttons, no watermark, no messy text, no distorted anatomy, no cheap flat layout.`;
+
+  document.getElementById("animatedVideoOutput").textContent = script;
+  showToast("8-second script generated ✨");
+}
+
+function generateVariations(){
+  const base = get("main_headline") || "Faith Poster";
+  const theme = getCategory(categoryIds["Main Message / Theme"]) || "healing";
+  document.getElementById("mainOutput").textContent += `\n\n[3 MORE VARIATIONS]\nVariation A: Create a softer emotional version of "${base}" focused on ${theme}, with lighter glow, more butterflies, and calm readable typography.\n\nVariation B: Create a dramatic spiritual warfare version of "${base}" with stronger contrast, broken chains, storm clouds, and gold light breaking through.\n\nVariation C: Create a luxury Pinterest wall-art version of "${base}" with premium typography, selected palette accents, clean spacing, and polished product-ready finish.`;
+  showToast("Variations added ✨");
+}
+
+function normalizePlainText(text){
+  return String(text || "")
+    .replace(/\u00a0/g, " ")
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/[ \t]+$/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+async function copyText(id){
+  const el = document.getElementById(id);
+  if(!el) return showToast("Nothing to copy");
+  const plainText = normalizePlainText(el.innerText || el.textContent || el.value || "");
+
+  try {
+    if(navigator.clipboard && window.ClipboardItem){
+      const item = new ClipboardItem({
+        "text/plain": new Blob([plainText], {type:"text/plain"})
+      });
+      await navigator.clipboard.write([item]);
+    } else if(navigator.clipboard && navigator.clipboard.writeText){
+      await navigator.clipboard.writeText(plainText);
+    } else {
+      const temp = document.createElement("textarea");
+      temp.value = plainText;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "fixed";
+      temp.style.left = "-9999px";
+      temp.style.top = "-9999px";
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
+    }
+    showToast("Copied plain text ✨");
+  } catch(err) {
+    const temp = document.createElement("textarea");
+    temp.value = plainText;
+    temp.setAttribute("readonly", "");
+    temp.style.position = "fixed";
+    temp.style.left = "-9999px";
+    temp.style.top = "-9999px";
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+    showToast("Copied plain text ✨");
+  }
+}
+
+
+function runFinalBugScan(){
+  const out = document.getElementById('bugScanOutput');
+  if(!out) return showToast('Bug scan box missing');
+  const issues = [];
+  const warnings = [];
+  const passed = [];
+
+  const has = id => !!document.getElementById(id);
+  const fn = name => typeof window[name] === 'function';
+  const ids = [...document.querySelectorAll('[id]')].map(el => el.id);
+  const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+  const uniqueDuplicates = [...new Set(duplicates)];
+
+  if(uniqueDuplicates.length){
+    issues.push('Duplicate IDs found: ' + uniqueDuplicates.join(', '));
+  } else {
+    passed.push('No duplicate IDs found.');
+  }
+
+  const requiredFunctions = [
+    'generatePrompt','randomizeAll','clearAll','copyText','saveAll',
+    'generateAnimatedVideoScript','generateSunoOutputs','generateMarketingSuite',
+    'generateCustomGPTSection','generateVariations'
+  ];
+  requiredFunctions.forEach(name => fn(name) ? passed.push(name + '() exists.') : issues.push(name + '() is missing.'));
+
+  const requiredOutputs = [
+    'mainOutput','marketingOutput','animatedVideoOutput',
+    'sunoOutput','sunoJingleOutput','sunoThirtyOutput','sunoMinuteOutput','sunoSettingsOutput',
+    'captionsOutput','hashtagsOutput','seoKeywordsOutput','callsToActionOutput','emailPromoOutput',
+    'pinterestPromoOutput','tiktokPromoOutput','facebookPromoOutput','instagramPromoOutput','youtubePromoOutput','adCopyOutput',
+    'customGptInstructionsOutput','starterQuestionsOutput','customGptKnowledgeOutput'
+  ];
+  requiredOutputs.forEach(id => has(id) ? passed.push(id + ' output exists.') : issues.push(id + ' output box is missing.'));
+
+  const mainCategoryIds = Object.values(categoryIds || {});
+  mainCategoryIds.forEach(id => {
+    const dropdown = document.getElementById(id);
+    const custom = document.getElementById(id + '_custom');
+    const lock = document.getElementById(id + '_lock');
+    if(!dropdown) issues.push(id + ' dropdown is missing.');
+    if(!custom) issues.push(id + ' custom override box is missing.');
+    if(!lock) issues.push(id + ' lock button is missing.');
+    if(dropdown){
+      const realOptions = [...dropdown.options].filter(o => o.value !== 'None' && o.textContent.trim() !== 'None');
+      if(realOptions.length < 100) warnings.push(id + ' has only ' + realOptions.length + ' real options. Target is 100.');
+      else passed.push(id + ' has ' + realOptions.length + ' real options.');
+    }
+  });
+
+  const copyButtons = [...document.querySelectorAll('button')].filter(btn => /copy/i.test(btn.textContent || ''));
+  if(copyButtons.length < 12) warnings.push('Only ' + copyButtons.length + ' copy buttons found. Check all major outputs.');
+  else passed.push(copyButtons.length + ' copy buttons found.');
+
+
+  if(has('promptHistoryList') && fn('renderPromptHistory') && fn('clearPromptHistory')) passed.push('Prompt History section and controls exist.');
+  else warnings.push('Prompt History section or history functions may be incomplete.');
+
+
+  const genderMention = document.body.innerText.toLowerCase().includes('gender lock');
+  if(genderMention) warnings.push('Gender Lock wording still appears somewhere. Remove it if this generator has no gender category.');
+  else passed.push('No visible Gender Lock wording found.');
+
+  const bodyOverflow = document.documentElement.scrollWidth > window.innerWidth + 2;
+  if(bodyOverflow) warnings.push('Possible horizontal overflow on this screen. Mobile layout may need tightening.');
+  else passed.push('No horizontal overflow detected on this screen.');
+
+  const score = issues.length ? 'Needs Work' : (warnings.length ? 'Good' : 'Excellent');
+  const now = new Date().toLocaleString();
+  out.textContent = `[FINAL BUG SCAN / STATUS CHECK]\nStatus: ${score}\nChecked: ${now}\n\nCRITICAL ISSUES\n${issues.length ? issues.map(x => '- ' + x).join('\n') : '- None found.'}\n\nWARNINGS / QUICK FIXES\n${warnings.length ? warnings.map(x => '- ' + x).join('\n') : '- None found.'}\n\nPASSED CHECKS\n${passed.slice(0, 60).map(x => '- ' + x).join('\n')}${passed.length > 60 ? '\n- Plus ' + (passed.length - 60) + ' more passed checks.' : ''}`;
+  showToast('Bug scan complete ✨');
+}
+
+function copyPlainText(id){ return copyText(id); }
+
+function safeLocalStorageAvailable(){
+  try {
+    if(!window.localStorage) return false;
+    const testKey = 'glam_spiritual_storage_test_' + Date.now();
+    window.localStorage.setItem(testKey, '1');
+    window.localStorage.removeItem(testKey);
+    return true;
+  } catch(err) {
+    console.warn('Browser storage unavailable:', err);
+    return false;
+  }
+}
+
+function safeLocalSet(key, value){
+  try {
+    if(!safeLocalStorageAvailable()) return false;
+    window.localStorage.setItem(key, value);
+    return true;
+  } catch(err) {
+    console.warn('Storage save blocked for ' + key + ':', err);
+    return false;
+  }
+}
+
+function safeLocalGet(key, fallback = null){
+  try {
+    if(!window.localStorage) return fallback;
+    const value = window.localStorage.getItem(key);
+    return value === null ? fallback : value;
+  } catch(err) {
+    console.warn('Storage read blocked for ' + key + ':', err);
+    return fallback;
+  }
+}
+
+function openGlamDB(){
+  return new Promise((resolve, reject) => {
+    if(!window.indexedDB) return reject(new Error('IndexedDB is not available'));
+    const request = indexedDB.open('glam_spiritual_generator_db', 1);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if(!db.objectStoreNames.contains('settings')) db.createObjectStore('settings');
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error || new Error('IndexedDB open failed'));
+    request.onblocked = () => reject(new Error('IndexedDB is blocked'));
+  });
+}
+
+async function idbSet(key, value){
+  const db = await openGlamDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('settings', 'readwrite');
+    tx.objectStore('settings').put(value, key);
+    tx.oncomplete = () => { db.close(); resolve(true); };
+    tx.onerror = () => { db.close(); reject(tx.error || new Error('IndexedDB save failed')); };
+  });
+}
+
+async function idbGet(key){
+  const db = await openGlamDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('settings', 'readonly');
+    const request = tx.objectStore('settings').get(key);
+    request.onsuccess = () => resolve(request.result ?? null);
+    request.onerror = () => reject(request.error || new Error('IndexedDB read failed'));
+    tx.oncomplete = () => db.close();
+    tx.onerror = () => { db.close(); reject(tx.error || new Error('IndexedDB transaction failed')); };
+  });
+}
+
+async function saveAll(){
+  // Main Save button = save the current generated prompt into Prompt History.
+  // It also quietly stores the current dropdown/settings state so Load Saved still works.
+  const historySaved = (typeof savePromptToHistory === 'function') ? savePromptToHistory() : false;
+
+  const data = collectSettings();
+  try { window.glamLastSettingsObject = data; } catch(e) {}
+
+  const payload = JSON.stringify(data);
+  const locksPayload = JSON.stringify([...lockedFields]);
+  const chipsPayload = JSON.stringify(getSelectedChips());
+
+  const payloadSaved = safeLocalSet('glam_spiritual_savedSettings', payload);
+  const locksSaved = safeLocalSet('glam_spiritual_lockedFields', locksPayload);
+  const chipsSaved = safeLocalSet('glam_spiritual_selectedChips', chipsPayload);
+
+  if(!(payloadSaved && locksSaved && chipsSaved)){
+    try {
+      await idbSet('glam_spiritual_savedSettings', payload);
+      await idbSet('glam_spiritual_lockedFields', locksPayload);
+      await idbSet('glam_spiritual_selectedChips', chipsPayload);
+    } catch(idbErr) {
+      console.warn('Settings backup skipped:', idbErr);
+    }
+  }
+
+  if(!historySaved){
+    renderPromptHistory();
+  }
+}
+
+async function loadSaved(){
+  try {
+    let savedData = safeLocalGet('glam_spiritual_savedSettings');
+    let savedLocks = safeLocalGet('glam_spiritual_lockedFields', '[]');
+    let savedChips = safeLocalGet('glam_spiritual_selectedChips', '[]');
+
+    // If localStorage is blocked/empty, try IndexedDB before giving up.
+    if(!savedData){
+      try {
+        savedData = await idbGet('glam_spiritual_savedSettings');
+        savedLocks = await idbGet('glam_spiritual_lockedFields') || '[]';
+        savedChips = await idbGet('glam_spiritual_selectedChips') || '[]';
+      } catch(idbErr) {
+        console.warn('IndexedDB load skipped:', idbErr);
+      }
+    }
+
+    if(savedData){
+      restoreSettings(JSON.parse(savedData));
+      lockedFields.clear();
+      document.querySelectorAll('.lockBtn').forEach(btn => { btn.textContent = 'Lock'; btn.classList.remove('locked'); });
+      JSON.parse(savedLocks || '[]').forEach(id => { if(document.getElementById(id + '_lock')) toggleLock(id); });
+      restoreSelectedChips(JSON.parse(savedChips || '[]'));
+      updateSliderValues();
+      renderPromptHistory();
+      showToast('Loaded saved settings ✨');
+      return;
+    }
+
+    if(window.glamLastSettingsObject){
+      restoreSettings(window.glamLastSettingsObject);
+      updateSliderValues();
+      renderPromptHistory();
+      showToast('Loaded temporary same-tab save ✨');
+      return;
+    }
+
+    // Older save fallback
+    let foundAnyOldSave = false;
+    allFieldIds.concat(['presetSelect']).forEach(id => {
+      const saved = safeLocalGet('glam_spiritual_' + id);
+      const el = document.getElementById(id);
+      if(saved !== null && el){
+        foundAnyOldSave = true;
+        if(el.type === 'checkbox') el.checked = saved === 'true' || saved === '"true"';
+        else el.value = saved;
+      }
+    });
+
+    updateSliderValues();
+    renderPromptHistory();
+    showToast(foundAnyOldSave ? 'Loaded saved settings ✨' : 'No saved settings found yet');
+  } catch(err) {
+    console.error('Load failed:', err);
+    showToast('Load failed — saved data may be damaged');
+  }
+}
+
+function clearAll(){
+  allFieldIds.concat(["presetSelect"]).forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(el.id === "character_included_toggle") el.value = "Yes";
+    else if(el.tagName === "SELECT") el.value = "None";
+    else el.value = "";
+  });
+  document.querySelectorAll('input[type="color"]').forEach(el => {
+    const def = el.getAttribute("data-default") || el.defaultValue || "#f7c948";
+    el.value = def;
+  });
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => {
+    el.checked = el.hasAttribute("data-default-checked");
+  });
+  document.querySelectorAll('input[type="range"]').forEach(el => {
+    el.value = el.getAttribute('data-default') || el.defaultValue || '50';
+  });
+  document.querySelectorAll('[data-chip-group] .chip').forEach(el => el.classList.remove('selected'));
+  const vocalDefault = document.querySelector('[data-chip-group="suno_vocal_type"] .chip[data-value="vocal"]');
+  if(vocalDefault) vocalDefault.classList.add('selected');
+  updateSliderValues();
+  ["mainOutput","marketingOutput","animatedVideoOutput","sunoOutput","sunoJingleOutput","sunoThirtyOutput","sunoMinuteOutput","sunoSettingsOutput","captionsOutput","hashtagsOutput","seoKeywordsOutput","callsToActionOutput","emailPromoOutput","pinterestPromoOutput","tiktokPromoOutput","facebookPromoOutput","instagramPromoOutput","youtubePromoOutput","adCopyOutput","productMockupPromptOutput","digitalProductCoverOutput","salesPageCoverOutput","listingImagePromptOutput","lifestyleMockupPromptOutput"].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = ""; });
+  lockedFields.clear();
+  document.querySelectorAll(".lockBtn").forEach(btn => { btn.textContent = "Lock"; btn.classList.remove("locked"); });
+  showToast("Cleared everything");
+}
+
+
+function getSelectedChips(){
+  return [...document.querySelectorAll('.chip.selected,[data-chip].selected,.chip.active,[data-chip].active,input[type="checkbox"][data-chip]:checked')].map(el => el.id || el.dataset.value || el.textContent.trim()).filter(Boolean);
+}
+
+function restoreSelectedChips(chips){
+  document.querySelectorAll('.chip.selected,[data-chip].selected,.chip.active,[data-chip].active').forEach(el => el.classList.remove('selected','active'));
+  document.querySelectorAll('input[type="checkbox"][data-chip]').forEach(el => el.checked = false);
+  (chips || []).forEach(value => {
+    const safe = String(value).replace(/"/g,'\\"');
+    const byId = document.getElementById(value);
+    const byData = document.querySelector(`[data-value="${safe}"],[data-chip="${safe}"]`);
+    const el = byId || byData;
+    if(!el) return;
+    if(el.type === 'checkbox') el.checked = true;
+    else el.classList.add('selected');
+  });
+}
+
+function collectSettings(){
+  const fields = {};
+  document.querySelectorAll('select,input,textarea').forEach(el => {
+    if(!el.id || el.type === 'file') return;
+    fields[el.id] = (el.type === 'checkbox') ? el.checked : el.value;
+  });
+  return {
+    app: 'glam_spiritual_affirmation_generator',
+    version: 2,
+    exportedAt: new Date().toISOString(),
+    fields,
+    lockedCategories: [...lockedFields],
+    selectedChips: getSelectedChips(),
+    outputs: {
+      mainOutput: document.getElementById('mainOutput')?.textContent || '',
+      marketingOutput: document.getElementById('marketingOutput')?.textContent || '',
+      animatedVideoOutput: document.getElementById('animatedVideoOutput')?.textContent || '',
+      sunoOutput: document.getElementById('sunoOutput')?.textContent || '',
+      sunoJingleOutput: document.getElementById('sunoJingleOutput')?.textContent || '',
+      sunoThirtyOutput: document.getElementById('sunoThirtyOutput')?.textContent || '',
+      sunoMinuteOutput: document.getElementById('sunoMinuteOutput')?.textContent || '',
+      sunoSettingsOutput: document.getElementById('sunoSettingsOutput')?.textContent || '',
+      productMockupPromptOutput: document.getElementById('productMockupPromptOutput')?.textContent || '',
+      digitalProductCoverOutput: document.getElementById('digitalProductCoverOutput')?.textContent || '',
+      salesPageCoverOutput: document.getElementById('salesPageCoverOutput')?.textContent || '',
+      listingImagePromptOutput: document.getElementById('listingImagePromptOutput')?.textContent || '',
+      lifestyleMockupPromptOutput: document.getElementById('lifestyleMockupPromptOutput')?.textContent || ''
+    },
+    promptHistory: getPromptHistory()
+  };
+}
+
+function restoreSettings(data){
+  if(!data || !data.fields) return showToast('Settings file not valid');
+  Object.entries(data.fields).forEach(([id,value]) => {
+    const el = document.getElementById(id);
+    if(!el || el.type === 'file') return;
+    if(el.type === 'checkbox') el.checked = !!value;
+    else el.value = value;
+  });
+  lockedFields.clear();
+  document.querySelectorAll('.lockBtn').forEach(btn => { btn.textContent = 'Lock'; btn.classList.remove('locked'); });
+  (data.lockedCategories || []).forEach(id => { if(document.getElementById(id + '_lock')) toggleLock(id); });
+  restoreSelectedChips(data.selectedChips || []);
+  if(data.outputs){
+    Object.entries(data.outputs).forEach(([id,value]) => {
+      const el = document.getElementById(id);
+      if(el) el.textContent = value || '';
+    });
+  }
+  if(Array.isArray(data.promptHistory)){
+    safeLocalSet('glam_spiritual_promptHistory', JSON.stringify(data.promptHistory));
+    renderPromptHistory();
+  }
+  showToast('Settings imported ✨');
+}
+
+let promptHistoryCache = [];
+
+function readPromptHistoryFromLocal(){
+  try {
+    const raw = safeLocalGet('glam_spiritual_promptHistory', '[]') || '[]';
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch(e){
+    return [];
+  }
+}
+
+async function loadPromptHistoryFromStorage(){
+  let history = readPromptHistoryFromLocal();
+
+  // If localStorage is blocked or empty, try IndexedDB so Prompt History can still live inside the generator/browser.
+  if(!history.length){
+    try {
+      const idbHistory = await idbGet('glam_spiritual_promptHistory');
+      if(Array.isArray(idbHistory)) history = idbHistory;
+      else if(typeof idbHistory === 'string') history = JSON.parse(idbHistory || '[]');
+    } catch(err){
+      console.warn('Prompt history IndexedDB load skipped:', err);
+    }
+  }
+
+  promptHistoryCache = Array.isArray(history) ? history.slice(0,50) : [];
+  return promptHistoryCache;
+}
+
+function getPromptHistory(){
+  const localHistory = readPromptHistoryFromLocal();
+  if(localHistory.length) promptHistoryCache = localHistory.slice(0,50);
+  return Array.isArray(promptHistoryCache) ? promptHistoryCache : [];
+}
+
+function setPromptHistory(items){
+  const cleanItems = (Array.isArray(items) ? items : []).slice(0,50);
+  promptHistoryCache = cleanItems;
+  const payload = JSON.stringify(cleanItems);
+
+  // Save inside browser storage only. No downloads.
+  const localSaved = safeLocalSet('glam_spiritual_promptHistory', payload);
+
+  // Backup to IndexedDB too, because localStorage can be blocked on file:// pages.
+  try {
+    idbSet('glam_spiritual_promptHistory', cleanItems).catch(err => console.warn('Prompt history IndexedDB save skipped:', err));
+  } catch(err){
+    console.warn('Prompt history IndexedDB save skipped:', err);
+  }
+
+  return localSaved;
+}
+
+function savePromptToHistory(){
+  const prompt = normalizePlainText(document.getElementById('mainOutput')?.textContent || '');
+  if(!prompt || prompt === 'Click Generate Prompt.') {
+    showToast('Generate a prompt first, then save it to Prompt History');
+    return false;
+  }
+  const history = getPromptHistory();
+  if(history[0] && history[0].prompt === prompt) {
+    renderPromptHistory();
+    showToast('Already saved in Prompt History');
+    return true;
+  }
+  history.unshift({
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+    title: get('main_headline') || getCategory(categoryIds['Main Message / Theme']) || 'Saved Prompt',
+    createdAt: new Date().toLocaleString(),
+    prompt
+  });
+  setPromptHistory(history);
+  renderPromptHistory();
+  showToast('Saved to Prompt History 💾');
+  return true;
+}
+
+function renderPromptHistory(){
+  const box = document.getElementById('promptHistoryList');
+  if(!box) return;
+  const history = getPromptHistory();
+  if(!history.length){
+    box.innerHTML = '<div class="emptyHistory">No saved prompts yet. Generate a prompt and it will stay here after refresh.</div>';
+    return;
+  }
+  box.innerHTML = history.map(item => `
+    <div class="historyItem" data-history-id="${item.id}">
+      <div class="historyMeta">${escapeHTML(item.title)} • ${escapeHTML(item.createdAt)}</div>
+      <pre class="historyText" id="history_${item.id}">${escapeHTML(item.prompt)}</pre>
+      <div class="buttonRow">
+        <button class="secondary" onclick="copySavedPrompt('${item.id}')">Copy Saved Prompt</button>
+        <button class="danger" onclick="deleteSavedPrompt('${item.id}')">Delete</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function copySavedPrompt(id){
+  const item = getPromptHistory().find(x => x.id === id);
+  if(!item) return showToast('Prompt not found');
+  const tempId = 'copyTempPromptBox';
+  let temp = document.getElementById(tempId);
+  if(!temp){
+    temp = document.createElement('pre');
+    temp.id = tempId;
+    temp.style.display = 'none';
+    document.body.appendChild(temp);
+  }
+  temp.textContent = item.prompt;
+  copyText(tempId);
+}
+
+function deleteSavedPrompt(id){
+  setPromptHistory(getPromptHistory().filter(item => item.id !== id));
+  renderPromptHistory();
+  showToast('Deleted');
+}
+
+function clearPromptHistory(){
+  try { if(window.localStorage) window.localStorage.removeItem('glam_spiritual_promptHistory'); } catch(e) {}
+  promptHistoryCache = [];
+  try { idbSet('glam_spiritual_promptHistory', []).catch(err => console.warn('Prompt history IndexedDB clear skipped:', err)); } catch(e) {}
+  renderPromptHistory();
+  showToast('Prompt History cleared');
+}
+
+function escapeHTML(value){
+  return String(value || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+}
+
+
+function getChipValues(group){
+  return [...document.querySelectorAll(`[data-chip-group="${group}"] .chip.selected`)].map(el => el.dataset.value || el.textContent.trim()).filter(Boolean);
+}
+
+function chipText(group, customId, fallback){
+  const chips = getChipValues(group);
+  const custom = get(customId);
+  const parts = chips.concat(custom ? [custom] : []);
+  return parts.length ? parts.join(', ') : fallback;
+}
+
+function updateSliderValues(){
+  ['suno_weirdness','suno_style_influence','suno_audio_influence'].forEach(id => {
+    const el = document.getElementById(id);
+    const out = document.getElementById(id + '_value');
+    if(el && out) out.textContent = el.value + '%';
+  });
+}
+
+function limitChars(text, max=980){
+  text = normalizePlainText(text || '');
+  return text.length <= max ? text : text.slice(0, max - 3).trim() + '...';
+}
+
+function getSunoSource(){
+  return {
+    headline: get('main_headline') || getCategory(categoryIds['Main Message / Theme']) || 'Break Free And Rise',
+    theme: getCategory(categoryIds['Main Message / Theme']) || 'spiritual breakthrough, healing, and freedom',
+    mood: getCategory(categoryIds['Mood / Emotion']) || 'emotional, inspirational, motivational, tear-moving, victorious',
+    symbols: getCategory(categoryIds['Spiritual Symbols']) || 'broken chains, divine light, and glowing butterflies',
+    scene: getCategory(categoryIds['Object / Main Scene']) || 'a spiritual breakthrough moment',
+    main: normalizePlainText(document.getElementById('mainOutput')?.textContent || '')
+  };
+}
+
+function generateSunoOutputs(){
+  const source = getSunoSource();
+  const genre = chipText('suno_genres','suno_genre_custom', get('suno_option') || 'cinematic gospel worship anthem');
+  const style = chipText('suno_style_influences','suno_style_custom','tearful testimony energy, bold freedom anthem, cinematic worship lift');
+  const vocal = chipText('suno_vocal_type','suno_vocal_custom','vocal');
+  const audioNotes = get('suno_audio_custom') || 'start intimate, build with emotional drums, rise into a victorious choir-style ending';
+  const settings = `Suggested Suno Settings
+Genre: ${genre}
+Style influence references only: ${style}
+Vocal Type: ${vocal}
+Weirdness: ${get('suno_weirdness') || '35'}%
+Style Influence: ${get('suno_style_influence') || '70'}%
+Audio Influence: ${get('suno_audio_influence') || '55'}%
+Audio Notes: ${audioNotes}
+Theme Connection: ${source.theme}
+Mood: ${source.mood}`;
+
+  const jingle = `Title: ${source.headline}
+Type: Spiritual breakthrough jingle
+Genre: ${genre}
+Mood: ${source.mood}
+
+Lyrics:
+I broke free, I rose again,
+God pulled me through the fire and rain.
+Chains fell down, my soul can breathe,
+I am covered, I believe.
+
+Direction: short, memorable, emotional hook with a lifted ending. ${audioNotes}`;
+
+  const thirty = `Title: ${source.headline}
+Type: 30-second spiritual song
+Genre: ${genre}
+Style influence references only: ${style}
+Mood: ${source.mood}
+
+Lyrics:
+Verse:
+I cried in the dark, but Heaven heard me.
+I bent, I shook, but it did not break me.
+
+Pre-Chorus:
+Every chain had to lose its grip,
+Every tear turned into worship.
+
+Chorus:
+I am breaking free, I am rising whole,
+God put fire back inside my soul.
+I walked through pain, but I came out light,
+I am living proof He still fights.
+
+Direction: ${vocal}; build from soft testimony into bold victory.`;
+
+  const minute = `Title: ${source.headline}
+Type: 1-minute spiritual anthem
+Genre: ${genre}
+Style influence references only: ${style}
+Mood: ${source.mood}
+
+Lyrics:
+Verse 1:
+I carried silent battles nobody could see,
+Smiled through the storm while it wrestled with me.
+But grace stepped in where my strength ran dry,
+And Heaven whispered, child, it is time.
+
+Pre-Chorus:
+The weight is falling, the fear is done,
+I am not buried, I am becoming.
+
+Chorus:
+I am breaking free, no chains on me,
+God turned my wounds into testimony.
+I rise with fire, I walk in light,
+I survived the dark because He still fights.
+
+Bridge:
+Tell every boundary I am not staying,
+Tell every lie I know who named me.
+
+Final Chorus:
+I am breaking free, healed and alive,
+Tears in my eyes, but glory inside.`;
+
+  document.getElementById('sunoJingleOutput').textContent = limitChars(jingle);
+  document.getElementById('sunoThirtyOutput').textContent = limitChars(thirty);
+  document.getElementById('sunoMinuteOutput').textContent = limitChars(minute);
+  document.getElementById('sunoSettingsOutput').textContent = settings;
+  document.getElementById('sunoOutput').textContent = settings;
+  showToast('Suno outputs generated 🎵');
+}
+
+
+function getMarketingSource(){
+  const mainPrompt = normalizePlainText(document.getElementById('mainOutput')?.textContent || '');
+  return {
+    prompt: mainPrompt,
+    headline: get('main_headline') || getCategory(categoryIds['Main Message / Theme']) || 'spiritual breakthrough art',
+    theme: getCategory(categoryIds['Main Message / Theme']) || 'spiritual breakthrough, healing, freedom, and testimony',
+    subject: getCategory(categoryIds['Character Type']) || 'faith-filled visual concept',
+    scene: getCategory(categoryIds['Object / Main Scene']) || 'bold spiritual transformation scene',
+    style: getCategory(categoryIds['Art Style / Finish']) || 'premium cinematic spiritual poster art',
+    mood: getCategory(categoryIds['Mood / Emotion']) || 'emotional, inspirational, motivational, and victorious',
+    palette: getCategory(categoryIds['Color Palette']) || 'the selected color palette or a premium spiritual palette',
+    custom: get('marketing_suite_custom')
+  };
+}
+
+function generateMarketingSuite(){
+  const src = getMarketingSource();
+  if(!src.prompt || src.prompt === 'Click Generate Prompt.'){
+    return showToast('Generate the main prompt first');
+  }
+  const product = `${src.headline} spiritual affirmation visual`;
+  const customLine = src.custom ? `\nCustom direction: ${src.custom}` : '';
+
+  document.getElementById('captionsOutput').textContent = normalizePlainText(`
+1. ${src.headline} is for the woman who survived the storm and still believes God is not finished. This visual turns pain into power, tears into testimony, and faith into a scroll-stopping moment.
+
+2. When the chains break, the whole room feels it. Create a bold spiritual poster centered on ${src.theme} with ${src.mood} energy.
+
+3. This is not a soft little quote graphic. This is breakthrough energy, healing fire, and proof that what tried to bury you failed.
+
+4. Use this concept for wall art, digital downloads, journals, Pinterest pins, reels, thumbnails, and faith-based product mockups.${customLine}`);
+
+  document.getElementById('hashtagsOutput').textContent = '#SpiritualAffirmations #FaithBasedArt #ChristianWallArt #HealingJourney #GodIsRestoringMe #BreakingFree #FaithOverFear #PrayerWarrior #TestimonySeason #InspirationalQuotes #MotivationalPoster #DigitalProductIdeas #PinterestMarketing #FaithContentCreator #GlamorousGrammyGlowUp';
+
+  document.getElementById('seoKeywordsOutput').textContent = normalizePlainText(`spiritual affirmation poster, faith based wall art, Christian affirmation art, inspirational digital download, motivational faith poster, healing journey artwork, breakthrough testimony art, prayer warrior poster, God is restoring me art, faith over fear printable, Christian Pinterest pin, spiritual warfare wall art, emotional healing quote poster, luxury digital product art, ${src.headline} poster`);
+
+  document.getElementById('callsToActionOutput').textContent = normalizePlainText(`
+- Comment GLOW if you want more faith-based prompt ideas.
+- Save this for your next spiritual content post.
+- Turn this into wall art, a journal cover, or a digital download today.
+- Click the link to grab the prompt bundle and start creating.
+- Share this with someone who needs a reminder that they are not stuck.
+- Use this concept to create your next scroll-stopping product mockup.
+- Follow for bold faith art, healing prompts, and digital product ideas.`);
+
+  document.getElementById('emailPromoOutput').textContent = normalizePlainText(`Subject: This one feels like breakthrough\n\nThis is for the season where you stop shrinking.\n\nThe ${product} was created around ${src.theme}. It is bold, emotional, spiritual, and made to feel like the moment chains hit the floor.\n\nUse it for a printable poster, journal cover, Pinterest pin, digital download, or product mockup. The style direction brings ${src.palette}, ${src.style}, and ${src.mood} energy together in one powerful concept.\n\nIf your audience loves faith, healing, motivation, and testimony-driven visuals, this one belongs in your content lineup.\n\nCTA: Grab it, create it, post it, and let the message do what it came to do.${customLine}`);
+
+  document.getElementById('pinterestPromoOutput').textContent = normalizePlainText(`${src.headline} | Spiritual affirmation poster idea for faith-based creators, Christian wall art sellers, Pinterest content, digital downloads, journal covers, and emotional healing visuals. Bold ${src.palette} design with ${src.mood} breakthrough energy.`);
+
+  document.getElementById('tiktokPromoOutput').textContent = normalizePlainText(`POV: You stopped asking for permission to heal.\n\nShow the finished visual first. Then reveal the prompt theme: ${src.theme}. Add text overlay: “What tried to break me became my testimony.”\n\nCaption: This is your sign to create faith-based visuals that hit people right in the spirit. Comment GLOW for more prompt ideas.`);
+
+  document.getElementById('facebookPromoOutput').textContent = normalizePlainText(`This one is for anybody who had to fight their way back to peace.\n\n${src.headline} is a bold spiritual affirmation concept built around ${src.theme}. It is emotional, motivational, and perfect for turning into wall art, journal covers, digital downloads, or faith-based content.\n\nNot cute and quiet. This is chains-breaking, tears-falling, God-still-got-me energy.\n\nDrop GLOW if you want more prompts like this.`);
+
+  document.getElementById('instagramPromoOutput').textContent = normalizePlainText(`Some visuals do more than look pretty. They preach.\n\n${src.headline} brings ${src.mood} energy with ${src.palette} luxury styling. Use it as a reel cover, carousel post, printable poster, or digital product design.\n\nSave this concept for your next faith-based product drop.\n\nCTA: Follow for spiritual prompt ideas that sell and still touch the soul.`);
+
+  document.getElementById('youtubePromoOutput').textContent = normalizePlainText(`Title idea: Create a Bold Spiritual Affirmation Poster That Feels Like Breakthrough\n\nDescription: In this video, create a powerful faith-based visual inspired by ${src.headline}. This concept focuses on ${src.theme}, emotional healing, spiritual freedom, and motivational poster design. Perfect for digital products, Pinterest content, thumbnails, wall art, and faith-based branding.\n\nHook: This is not just a poster. This is testimony in picture form.`);
+
+  document.getElementById('adCopyOutput').textContent = normalizePlainText(`Primary Text: Create bold faith-based visuals that stop the scroll and speak straight to the heart. This ${product} concept is perfect for creators selling printable wall art, journals, digital downloads, and spiritual content.\n\nHeadline: Turn Breakthrough Into Sellable Faith Art\n\nDescription: Emotional, inspirational, premium prompt ideas for spiritual creators.\n\nCTA: Get the Prompt`);
+
+  showToast('Marketing suite generated ✨');
+}
+
+
+
+function toggleProductMockups(){
+  const panel = document.getElementById('productMockupOutputsPanel');
+  const btn = document.getElementById('productMockupToggleBtn');
+  if(!panel) return;
+  const isHidden = panel.style.display === 'none' || !panel.style.display;
+  panel.style.display = isHidden ? 'block' : 'none';
+  if(btn) btn.textContent = isHidden ? 'Hide Product Mockup Outputs' : 'Show Product Mockup Outputs';
+}
+
+function getProductMockupSource(){
+  return {
+    mainPrompt: normalizePlainText(document.getElementById('mainOutput')?.textContent || ''),
+    headline: get('main_headline') || getCategory(categoryIds['Main Message / Theme']) || 'Bold Spiritual Breakthrough Poster',
+    theme: getCategory(categoryIds['Main Message / Theme']) || 'breaking free, healing, testimony, and spiritual victory',
+    scene: getCategory(categoryIds['Object / Main Scene']) || 'cinematic spiritual breakthrough scene',
+    subject: getCategory(categoryIds['Character Type']) || 'faith-centered visual concept',
+    symbols: getCategory(categoryIds['Spiritual Symbols']) || 'glowing butterflies, divine light, and breakthrough details',
+    palette: getCategory(categoryIds['Color Palette']) || 'the selected color palette or a premium spiritual palette',
+    mood: getCategory(categoryIds['Mood / Emotion']) || 'emotional, inspirational, motivational, and victorious',
+    style: getCategory(categoryIds['Art Style / Finish']) || 'premium cinematic spiritual poster art',
+    composition: getCategory(categoryIds['Composition / Layout']) || 'clean vertical poster layout with readable typography',
+    custom: get('product_mockup_custom')
+  };
+}
+
+function generateProductMockupOutputs(){
+  const src = getProductMockupSource();
+  if(!src.mainPrompt || src.mainPrompt === 'Click Generate Prompt.'){
+    return showToast('Generate the main prompt first');
+  }
+  const customLine = src.custom ? `\nCustom product direction: ${src.custom}` : '';
+  const shared = `Use the generated concept "${src.headline}" as the hero product. Theme: ${src.theme}. Visual source: ${src.scene}, ${src.subject}, ${src.symbols}. Mood: ${src.mood}. Palette: ${src.palette}. Finish: ${src.style}. Keep typography clean, readable, premium, and sales-ready. No crowns, no app icons, no browser UI, no watermarks.`;
+
+  document.getElementById('productMockupPromptOutput').textContent = normalizePlainText(`${shared}
+
+Create a polished product mockup scene showing the finished spiritual affirmation artwork as a sellable digital product bundle. Include a framed poster, printable wall art preview, journal cover, phone/tablet preview, and downloadable product bundle cards. Use the selected palette, elegant shadows, realistic paper texture, premium marketplace presentation, and clear product-focused composition.${customLine}`);
+
+  document.getElementById('digitalProductCoverOutput').textContent = normalizePlainText(`${shared}
+
+Create a digital product cover for a faith-based printable or prompt pack. The cover should feature the core artwork concept, bold emotional title styling, premium gold accents, spiritual glow, and a clean high-contrast layout. Make it look like a professional downloadable PDF, prompt guide, affirmation poster pack, or healing art bundle ready to sell online.${customLine}`);
+
+  document.getElementById('salesPageCoverOutput').textContent = normalizePlainText(`${shared}
+
+Create a wide sales page hero cover image for selling this spiritual affirmation product. Show the main poster artwork large, with supporting mockups around it: PDF guide cover, wall art frame, journal cover, and social media preview cards. Leave clean negative space for headline text. Make it persuasive, polished, emotional, traffic-focused, and conversion-ready.${customLine}`);
+
+  document.getElementById('listingImagePromptOutput').textContent = normalizePlainText(`${shared}
+
+Create a marketplace listing image for Payhip, Etsy-style shops, or digital product storefronts. Show exactly what the buyer receives: spiritual poster design, printable file preview, digital cover, social post preview, and bonus prompt-style cards. Add elegant labels like "Printable Wall Art", "Digital Download", "Faith-Based Design", and "Instant Access" while keeping the layout clean and not overcrowded.${customLine}`);
+
+  document.getElementById('lifestyleMockupPromptOutput').textContent = normalizePlainText(`${shared}
+
+Create a lifestyle mockup showing the spiritual affirmation artwork in real use: framed on a cozy wall, placed beside a Bible or journal, displayed on a tablet, and styled with candles, soft fabric, gold accents, and subtle glowing butterflies. The scene should help buyers imagine using the product for prayer space decor, healing journaling, content creation, or gifting.${customLine}`);
+
+  const panel = document.getElementById('productMockupOutputsPanel');
+  const btn = document.getElementById('productMockupToggleBtn');
+  if(panel){ panel.style.display = 'block'; }
+  if(btn){ btn.textContent = 'Hide Product Mockup Outputs'; }
+  showToast('Product mockup outputs generated ✨');
+}
+
+function generateCustomGPTSection(){
+  const title = 'Spiritual Affirmation Poster Prompt Generator';
+  const mainPrompt = normalizePlainText(document.getElementById('mainOutput')?.textContent || '');
+  const categories = Object.keys(categoryIds || {}).join(', ');
+  const purpose = 'This Custom GPT helps users create bold, emotional, spiritual, inspirational, and motivational AI prompts for faith-based affirmation posters, healing visuals, testimony art, product mockups, short animated video scripts, Suno music concepts, and marketing content.';
+
+  document.getElementById('customGptInstructionsOutput').textContent = normalizePlainText(`${purpose}
+
+Generator Purpose:
+Guide the user through building a powerful spiritual visual concept that feels like breakthrough, deliverance, healing, freedom, restoration, and testimony. The generator should avoid soft generic affirmation wording and lean into bold faith-based emotion, clean luxury styling, and scroll-stopping visual direction.
+
+Categories:
+The generator uses structured categories such as ${categories}. Each category helps control a specific part of the final prompt, including the main scene, message, character, pose, spiritual symbols, background, lighting, color palette, mood, composition, and art finish.
+
+Dropdowns and Custom Fields:
+Each relevant category includes a dropdown, a custom text box, and a lock button. Dropdowns give fast ready-made choices. Custom text boxes override the dropdown when filled. Locked categories must stay unchanged during randomization and variation generation. Unlocked categories may be refreshed to create new creative setups.
+
+Prompt Assembly Logic:
+Build the prompt in labeled sections. Skip empty fields and None selections. Use custom values before dropdown values. Keep locked items consistent. The final prompt should include subject, style, lighting, background, color palette, mood, composition, aspect ratio, design style, and a negative prompt.
+
+Output Style:
+Use vivid, cinematic, premium, faith-centered wording. Make the result feel emotional enough to move someone, but clear enough for AI image tools to follow. Avoid vague phrases, clutter, weak styling, crowns, UI icons, app overlays, and unreadable typography.
+
+Use Case:
+This generator is for creators selling or posting faith-based digital products, affirmation wall art, Pinterest graphics, journal covers, thumbnails, video visuals, Suno song ideas, and marketing content connected to spiritual breakthrough themes.`);
+
+  document.getElementById('starterQuestionsOutput').textContent = normalizePlainText(`1. Create a bold spiritual breakthrough poster prompt about breaking free from what tried to hold me back.
+
+2. Generate a faith-based affirmation visual with emotional healing, divine light, the selected color palette, and no crowns.
+
+3. Build a powerful testimony-style poster prompt that feels motivational, tear-worthy, and product-ready.
+
+4. Create a symbolic no-character spiritual scene about God restoring what pain tried to destroy.`);
+
+  document.getElementById('customGptKnowledgeOutput').textContent = normalizePlainText(`${title} Structure and Knowledge
+
+This generator is a premium HTML prompt-building tool for spiritual affirmation content. It uses category cards with dropdowns, custom override fields, lock buttons, toggles, prompt outputs, smart randomization, import/export settings, prompt history, variation generation, animated video scripting, Suno music controls, marketing outputs, and custom GPT instruction outputs.
+
+Core Logic:
+- Dropdown selections provide structured creative direction.
+- Custom text overrides dropdown selections when filled.
+- Lock buttons protect selected categories from randomization and variations.
+- Smart Random should create meaningful combinations, avoid nonsense pairings, avoid obvious repetition, and respect locked categories.
+- Clear All resets dropdowns, custom fields, locks, toggles, sliders, color values, chips, and output boxes.
+- Copy buttons must copy plain text only.
+- Prompt History saves generated prompts to localStorage and should remain after refresh.
+
+Intended Use:
+The generator helps users create spiritual visuals that feel bold, emotional, inspirational, motivational, and commercially useful. Outputs can support AI images, digital downloads, faith-based wall art, Pinterest pins, social media posts, video prompts, music prompts, captions, emails, SEO, and ads.
+
+Style Rules:
+Keep the tone premium, cinematic, faith-filled, healing, and testimony-driven. Favor language about restoration, freedom, chains breaking, divine covering, breakthrough, prayer, peace after pain, and victory. Avoid generic flat affirmation wording. Avoid crowns, tiaras, UI icons, app overlays, watermarks, misspelled typography, clutter, weak detail, and vague creative direction.`);
+  showToast('Custom GPT section generated ✨');
+}
+
+function setupChipControls(){
+  document.querySelectorAll('[data-chip-group] .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const group = chip.closest('[data-chip-group]');
+      if(!group) return;
+      if(group.dataset.multi === 'false') group.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.toggle('selected');
+    });
+  });
+  updateSliderValues();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadPromptHistoryFromStorage().then(renderPromptHistory).catch(() => renderPromptHistory());
+  setupChipControls();
+  updateSliderValues();
+  const coloringToggle = document.getElementById('coloring_page_toggle');
+  if(coloringToggle){
+    coloringToggle.addEventListener('change', handleColoringPageToggle);
+    const status = document.getElementById('coloring_page_status');
+    if(status) status.textContent = coloringToggle.checked ? 'ON — Generate Prompt will create a printable black-and-white coloring page prompt.' : 'OFF — current prompt will generate a full-color spiritual poster.';
+  }
+});
+
+function downloadText(id, filename){
+  const source = document.getElementById(id);
+  if(!source) return showToast("Nothing to download");
+  const blob = new Blob([source.textContent || source.value || ""], {type:"text/plain"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 500);
+}
+
+function showToast(msg){
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.style.display = "block";
+  setTimeout(() => toast.style.display = "none", 1400);
+}
+</script>
+</body>
+</html>
